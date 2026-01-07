@@ -3,303 +3,409 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do Thai Binh - Comprehensive Portfolio</title>
+    <title>Portfolio - DO THAI BINH</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #0056b3;
-            --secondary-blue: #e7f1ff;
-            --text-dark: #333;
-            --text-light: #555;
+            --primary: #004a99;
+            --secondary: #0066cc;
+            --accent: #e7f1ff;
+            --text-main: #2d3436;
+            --text-sub: #636e72;
             --white: #ffffff;
-            --border: #dee2e6;
+            --bg: #f0f2f5;
         }
 
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f4f7f9;
-            color: var(--text-dark);
-            margin: 0;
-            line-height: 1.6;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg); color: var(--text-main); margin: 0; line-height: 1.6; }
+        
+        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--white); padding: 50px 20px; text-align: center; }
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
+        .contact-grid { display: flex; justify-content: center; gap: 25px; margin-top: 20px; flex-wrap: wrap; font-size: 0.95rem; }
+        .contact-grid span { display: flex; align-items: center; gap: 8px; }
 
-        header {
-            background: linear-gradient(135deg, #004a99 0%, #0066cc 100%);
-            color: var(--white);
-            padding: 40px 20px;
-            text-align: center;
-        }
+        .container { max-width: 1200px; margin: -40px auto 50px; background: var(--white); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); overflow: hidden; }
+        
+        .tabs { display: flex; background: #f8f9fa; border-bottom: 2px solid var(--primary); overflow-x: auto; scrollbar-width: none; }
+        .tab-btn { padding: 20px; border: none; background: none; cursor: pointer; font-weight: bold; color: var(--text-sub); transition: 0.3s; flex: 1; min-width: 160px; text-transform: uppercase; font-size: 0.85rem; }
+        .tab-btn.active { background: var(--primary); color: var(--white); }
 
-        .header-content h1 { margin: 0; font-size: 2.8rem; text-transform: uppercase; }
-        .contact-info { margin-top: 15px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .contact-info span, .contact-info a { color: white; text-decoration: none; font-size: 0.95rem; }
+        .content { display: none; padding: 40px; animation: fadeIn 0.5s ease; }
+        .content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .tabs-wrapper {
-            max-width: 1200px;
-            margin: -20px auto 50px;
-            background: var(--white);
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
+        h2 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 15px; margin-top: 35px; font-size: 1.4rem; text-transform: uppercase; }
+        h3 { color: var(--secondary); margin-bottom: 10px; font-size: 1.1rem; }
 
-        .tab-bar {
-            display: flex;
-            background: #f8f9fa;
-            border-bottom: 2px solid var(--primary-blue);
-            overflow-x: auto;
-        }
-
-        .tab-btn {
-            padding: 18px 25px;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-weight: bold;
-            color: var(--text-light);
-            white-space: nowrap;
-            transition: 0.3s;
-            flex: 1;
-        }
-
-        .tab-btn.active {
-            background: var(--primary-blue);
-            color: white;
-        }
-
-        .tab-content { display: none; padding: 40px; animation: fadeIn 0.4s ease; }
-        .tab-content.active { display: block; }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* CV Structure Styling */
-        .cv-grid { display: grid; grid-template-columns: 300px 1fr; gap: 40px; }
-        .cv-sidebar { border-right: 1px solid var(--border); padding-right: 20px; }
-        .section-title {
-            color: var(--primary-blue);
-            border-bottom: 2px solid var(--primary-blue);
-            padding-bottom: 5px;
-            margin-top: 30px;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-        }
-
-        .project-item {
-            background: #fafafa;
-            border: 1px solid var(--border);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--primary-blue);
-        }
-        .project-title { font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 5px; }
-        .tech-stack { font-style: italic; color: var(--primary-blue); font-size: 0.9rem; margin-bottom: 10px; display: block; }
-
+        .cv-grid { display: grid; grid-template-columns: 320px 1fr; gap: 40px; }
+        .sidebar { background: #fafafa; padding: 20px; border-radius: 8px; height: fit-content; }
+        
+        .project-card { border: 1px solid #eee; padding: 20px; border-radius: 8px; margin-bottom: 25px; background: #fff; transition: 0.3s; }
+        .project-card:hover { border-color: var(--secondary); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .tech-list { color: var(--primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; display: block; }
+        
         ul { padding-left: 20px; }
         li { margin-bottom: 8px; }
 
-        /* Transcript Table */
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th { background: var(--primary-blue); color: white; padding: 12px; text-align: left; }
-        td { padding: 12px; border-bottom: 1px solid #eee; }
-        .gpa-box {
-            background: var(--secondary-blue);
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-weight: bold;
-            text-align: right;
-        }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        th { background: var(--primary); color: white; padding: 15px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        tr:hover { background-color: #f1f7ff; }
+        .excellent { color: #27ae60; font-weight: bold; }
 
-        @media (max-width: 900px) {
-            .cv-grid { grid-template-columns: 1fr; }
-            .cv-sidebar { border-right: none; padding-right: 0; }
-        }
+        @media (max-width: 992px) { .cv-grid { grid-template-columns: 1fr; } .sidebar { order: 2; } }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="header-content">
-        <h1>DO THAI BINH1</h1>
-        <div class="contact-info">
-            <span><i class="fas fa-calendar"></i> 21/11/2004</span>
-            <span><i class="fas fa-envelope"></i> dothaibinh021218@gmail.com</span>
-            <span><i class="fas fa-phone"></i> 0839976113</span>
-            <span><i class="fas fa-map-marker-alt"></i> Hai Chau, Da Nang City</span>
-        </div>
+    <h1>DO THAI BINH</h1>
+    <div class="contact-grid">
+        <span><i class="fas fa-birthday-cake"></i> 21/11/2004</span>
+        <span><i class="fas fa-envelope"></i> dothaibinh021218@gmail.com</span>
+        <span><i class="fas fa-phone"></i> 0839976113</span>
+        <span><i class="fas fa-map-marker-alt"></i> Hai Chau, Da Nang City</span>
     </div>
 </header>
 
-<div class="tabs-wrapper">
-    <div class="tab-bar">
-        <button class="tab-btn active" onclick="showTab(event, 'sw')">Software Developer</button>
-        <button class="tab-btn" onclick="showTab(event, 'android')">Android Developer</button>
-        <button class="tab-btn" onclick="showTab(event, 'dotnet')">.NET Developer</button>
-        <button class="tab-btn" onclick="showTab(event, 'ba')">Business Analyst</button>
-        <button class="tab-btn" onclick="showTab(event, 'transcript')">Academic Transcript</button>
+<div class="container">
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'Software')">Software Developer</button>
+        <button class="tab-btn" onclick="openTab(event, 'Android')">Android Developer</button>
+        <button class="tab-btn" onclick="openTab(event, 'DotNet')">.NET Developer</button>
+        <button class="tab-btn" onclick="openTab(event, 'BA')">Business Analyst</button>
+        <button class="tab-btn" onclick="openTab(event, 'Transcript')">Academic Transcript</button>
     </div>
 
-    <div id="sw" class="tab-content active">
+    <div id="Software" class="content active">
         <div class="cv-grid">
-            <div class="cv-sidebar">
-                <h3 class="section-title">Education</h3>
-                <p><strong>University of Technology and Education - UD</strong><br>Final-year student<br>Major: IT | GPA: 3.68</p>
-                
-                <h3 class="section-title">Skills</h3>
-                <p><strong>Languages:</strong> Java (Mobile), C# (Web), Python, C++, FastAPI</p>
+            <div class="sidebar">
+                <h3>Skills</h3>
+                <p><strong>English:</strong> Toeic 550, Technical Reading</p>
                 <p><strong>Database:</strong> SQL Server, MySQL, MongoDB</p>
-                <p><strong>Tools:</strong> GitHub, Docker, Figma, StarUML, PostMan, AWS</p>
-                <p><strong>English:</strong> TOEIC 550, Technical Reading</p>
-                
-                <h3 class="section-title">Hobby</h3>
+                <p><strong>Languages & Frameworks:</strong><br>Java, C# MVC, ASP.NET, Entity Framework, Python, FastAPI</p>
+                <p><strong>Machine Learning:</strong> Decision Tree, Logistic Regression, MLP</p>
+                <p><strong>IoT:</strong> C++, UART, I2C, HTTP, MQTT, Microcontroller</p>
+                <p><strong>Tools:</strong> GitHub, Docker, Figma, StartUML, PostMan, AWS</p>
+                <h3>Hobby</h3>
                 <ul>
-                    <li>Reading scientific materials</li>
-                    <li>Watching science films</li>
-                    <li>Learning new tech solutions</li>
+                    <li>Scientific materials</li>
+                    <li>Science films</li>
+                    <li>Walking</li>
+                    <li>Learning new tech</li>
                 </ul>
             </div>
-            <div class="cv-main">
-                <h3 class="section-title">Professional Objective</h3>
+            <div>
+                <h2>Professional Objective</h2>
                 <p>A technology-driven student with a strong passion for continuous learning, hands-on skill development, and exposure to modern technology solutions. I am eager to work with advanced systems while learning from experienced engineering teams. My long-term goal is to become a professional business analyst and eventually lead major project initiatives.</p>
                 
-                <h3 class="section-title">Experience & Projects</h3>
-                <div class="project-item">
-                    <span class="project-title">1) Stroke Risk Warning System (IoT & ML)</span>
-                    <span class="tech-stack">Technologies: Java (Android), Retrofit, REST API, SQL Server, GitHub, Docker, IoT, C++, C#, .NET, Machine Learning</span>
-                    <p><strong>Role:</strong> Software Developer</p>
-                    <p><strong>Responsibilities:</strong> User-flow and logic implementation, database design, UI layout design, API development, ML integration using logistic regression, IoT system with ESP32-C3, SMS and GPS integration.</p>
+                <h2>Experience & Projects</h2>
+                <div class="project-card">
+                    <h3>1) Health Monitoring and Stroke Warning System</h3>
+                    <span class="tech-list">Java (Android), Retrofit, REST API, SQL Server, GitHub, Docker, IoT, C++, C#, .NET, Machine Learning</span>
+                    <p><strong>Responsibilities:</strong> User-flow and logic implementation, database design, UI layout design, API development, ML integration (Logistic Regression), IoT system with ESP32-C3 Super Mini, SMS and GPS integration.</p>
+                    <p><strong>Achievements:</strong> Published IEEE international paper; First Prize Faculty Research.</p>
                 </div>
-                <div class="project-item">
-                    <span class="project-title">2) Weather Social Network App</span>
-                    <span class="tech-stack">Technologies: Java, Retrofit, REST API, MQTT, Cloudinary, IoT, C++</span>
-                    <p><strong>Responsibilities:</strong> User logic, DB design, MQTT configuration, cloud storage, IoT system development using ESP32-Cam.</p>
+                <div class="project-card">
+                    <h3>2) Weather Social Network App</h3>
+                    <span class="tech-list">Java, Retrofit, REST API, SQL Server, GitHub, Docker, IoT, C++, C#, .NET, MQTT, Cloudinary</span>
+                    <p><strong>Responsibilities:</strong> User logic, DB design, UI layout, API development, MQTT configuration, Cloud image storage, IoT system (ESP32-Cam).</p>
                 </div>
-
-                <h3 class="section-title">Honors and Awards</h3>
+                <h2>Honors & Awards</h2>
                 <ul>
-                    <li>Excellent Academic Encouragement Scholarship (2023–2024)</li>
-                    <li>UTE Challenge Scholarship (2024–2025)</li>
-                    <li>Published international paper in IEEE (May 2025)</li>
-                    <li>First Prize, Faculty Scientific Research Competition</li>
+                    <li>Excellent Academic Scholarship (Sem 2, 2023-2024)</li>
+                    <li>UTE Challenge Scholarship (2024-2025)</li>
+                    <li>IEEE Publication (May 2025)</li>
                     <li>"Innovation for Community Health" Award - Viettel IDC</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div id="android" class="tab-content">
+    <div id="Android" class="content">
         <div class="cv-grid">
-            <div class="cv-sidebar">
-                <h3 class="section-title">Skills</h3>
-                <p><strong>Android:</strong> Java, Retrofit, UI Layout Design</p>
-                <p><strong>Backend:</strong> REST API, SQL Server</p>
-                <p><strong>Others:</strong> Docker, Git, IoT integration</p>
-            </div>
-            <div class="cv-main">
-                <h3 class="section-title">Career Objective</h3>
-                <p>My long-term goal is to become a professional software developer and eventually lead high-performance project teams.</p>
-                <h3 class="section-title">Android Projects</h3>
-                <div class="project-item">
-                    <span class="project-title">Health Monitoring and Stroke Warning System</span>
-                    <p>Focusing on mobile UI/UX and real-time data from sensors. Implementation of GPS and SMS alerts for emergency cases.</p>
-                </div>
-                <div class="project-item">
-                    <span class="project-title">Weather Social Network</span>
-                    <p>Role: Project Administrator. Implementing social features: messages, comments, and live image streaming from IoT cameras.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="dotnet" class="tab-content">
-        <div class="cv-main">
-            <h3 class="section-title">Professional Career Objective</h3>
-            <p>Mong muốn trở thành lập trình viên chuyên nghiệp và người dẫn đầu của các nhóm dự án .NET.</p>
-            
-            <h3 class="section-title">Experience & Products</h3>
-            <div class="project-item">
-                <span class="project-title">1) Personal Finance Management System</span>
-                <span class="tech-stack">Tech: C#, .NET, ASP.NET, Java Android, SQL Server, Restful API</span>
-                <p><strong>Position:</strong> Leader, Developer</p>
-                <p><strong>Responsibilities:</strong> Task assignment, user logic, database design, API development, Android layout development.</p>
-            </div>
-            <div class="project-item">
-                <span class="project-title">2) Weather Social Network System</span>
-                <p>Role: Developer & Project Manager. Configuring MQTT protocols and cloud-based image storage.</p>
-            </div>
-            
-            <h3 class="section-title">Technical Skills</h3>
-            <ul>
-                <li><strong>Languages:</strong> C#, MVC, ASP.NET, Entity Framework, RESTful API.</li>
-                <li><strong>Databases:</strong> SQL Server, MySQL.</li>
-                <li><strong>Soft Skills:</strong> Team leadership (Small/Medium teams), Public speaking.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="ba" class="tab-content">
-        <div class="cv-grid">
-            <div class="cv-sidebar">
-                <h3 class="section-title">BA Competencies</h3>
+            <div class="sidebar">
+                <h3>Skills</h3>
+                <p><strong>English:</strong> Toeic 550, Technical Reading</p>
+                <p><strong>Database:</strong> SQL Server, MySQL, MongoDB</p>
+                <p><strong>Android Focus:</strong> Java (Android), Retrofit, UI Layout Design, Google Maps API</p>
+                <p><strong>Languages:</strong> Java, C++, C#, Python, REST API</p>
+                <p><strong>Tools:</strong> GitHub, Docker, PostMan, Figma</p>
+                <h3>Hobby</h3>
                 <ul>
-                    <li>Problem analysis and solving</li>
-                    <li>Requirement Gathering</li>
-                    <li>StarUML & Figma Prototyping</li>
-                    <li>Effective teamwork</li>
+                    <li>Reading scientific materials</li>
+                    <li>Learning new tech solutions</li>
+                    <li>Walking</li>
                 </ul>
             </div>
-            <div class="cv-main">
-                <h3 class="section-title">BA Career Objective</h3>
-                <p>I am eager to work with advanced systems while learning from experienced engineering teams. My long-term goal is to become a professional business analyst.</p>
-                <h3 class="section-title">Analytical Experience</h3>
-                <div class="project-item">
-                    <span class="project-title">System Analysis - Stroke Warning Project</span>
-                    <p>Effectively analyzed and addressed evolving technical requirements. Published scientific paper based on system analysis results.</p>
+            <div>
+                <h2>Professional Career Objective</h2>
+                <p>A technology-driven student with a strong interest in advancing technical knowledge and practical skills in mobile development. Eager to work with advanced systems while learning from experienced engineering teams. My long-term goal is to become a professional software developer and lead high-performance project teams.</p>
+                
+                <h2>Experience & Projects</h2>
+                <div class="project-card">
+                    <h3>1) Health Monitoring and Stroke Warning System</h3>
+                    <span class="tech-list">Java (Android), Retrofit, REST API, SQL Server, GitHub, Docker, IoT, C++, Machine Learning</span>
+                    <p><strong>Responsibilities:</strong> User-flow and logic implementation, database design, UI layout design and development, API development, SMS notification and GPS integration for emergency alerts.</p>
+                    <p><strong>Achievements:</strong> Published IEEE international paper; First Prize, Faculty Scientific Research Competition.</p>
                 </div>
+                <div class="project-card">
+                    <h3>2) Weather Social Network Android Application</h3>
+                    <span class="tech-list">Java (Android), Retrofit, REST API, SQL Server, GitHub, MQTT, Cloudinary, IoT (ESP32-Cam)</span>
+                    <p><strong>Position:</strong> Software Developer, Project Administrator</p>
+                    <p><strong>Responsibilities:</strong> User logic implementation, database design, UI layout development, API development, MQTT protocol configuration for live data, cloud-based image storage.</p>
+                </div>
+                <h2>Honors & Awards</h2>
+                <ul>
+                    <li>Excellent Academic Encouragement Scholarship (Sem 2, 2023-2024)</li>
+                    <li>UTE Challenge Scholarship (2024-2025)</li>
+                    <li>First Prize, Faculty Scientific Research Competition in Digital Technology</li>
+                    <li>"Innovation for Community Health" Award - Viettel IDC Group</li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <div id="transcript" class="tab-content">
-        <h3 class="section-title">Academic Record (Semester 1, 2025-2026)</h3>
+    <div id="DotNet" class="content">
+        <div class="cv-grid">
+            <div class="sidebar">
+                <h3>Skills</h3>
+                <p><strong>Languages:</strong> C#, Java, Python, C/C++</p>
+                <p><strong>Frameworks:</strong> .NET, ASP.NET, C# MVC, Entity Framework, RESTful API</p>
+                <p><strong>Database:</strong> SQL Server, MySQL</p>
+                <p><strong>Tools:</strong> GitHub, Docker, Figma, PostMan</p>
+                <p><strong>Soft Skills:</strong> Team Leadership, Public Speaking, Presentation</p>
+                <h3>Hobby</h3>
+                <ul>
+                    <li>Scientific research</li>
+                    <li>Science-related films</li>
+                    <li>Walking</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Professional Career Objective</h2>
+                <p>Là một sinh viên đam mê công nghệ, mong muốn được trau dồi kiến thức, kỹ năng thực tế và tiếp cận với các giải pháp công nghệ hiện đại. Mong muốn có cơ hội làm việc với các hệ thống tiến tiến, đồng thời học hỏi từ đội ngũ kỹ sư giàu kinh nghiệm. Tương lai sẽ trở thành lập trình viên chuyên nghiệp và trở thành người dẫn đầu của các nhóm dự án .NET.</p>
+                
+                <h2>Experience & Products</h2>
+                <div class="project-card">
+                    <h3>1) Personal Finance Management System</h3>
+                    <span class="tech-list">C#, .NET, ASP.NET Core, Java Android, SQL Server, Restful API</span>
+                    <p><strong>Position:</strong> Team Leader, Developer</p>
+                    <p><strong>Responsibilities:</strong> Task assignment, building user logic, database design, API development, Android layout development.</p>
+                    <p><strong>Result:</strong> Stable operation, effective member management, processed complex financial logic.</p>
+                </div>
+                <div class="project-card">
+                    <h3>2) Weather Social Network System</h3>
+                    <span class="tech-list">C#, .NET, ASP.NET, RESTful API, MQTT, Cloudinary, SQL Server</span>
+                    <p><strong>Position:</strong> Developer & Project Manager</p>
+                    <p><strong>Responsibilities:</strong> Backend logic development, database design, API development, MQTT connection configuration, cloud image storage system.</p>
+                </div>
+                <h2>Honors & Awards</h2>
+                <ul>
+                    <li>Excellent Academic Encouragement Scholarship (2023-2024)</li>
+                    <li>First Prize, Faculty Scientific Research Competition (5/2025)</li>
+                    <li>International Paper: "Health Monitoring and Stroke Warning System" (IEEE)</li>
+                    <li>Consolation Prize, University-level Scientific Research Competition</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="BA" class="content">
+        <div class="cv-grid">
+            <div class="sidebar">
+                <h3>BA Competencies</h3>
+                <p><strong>Modeling:</strong> StarUML, Figma (Prototyping)</p>
+                <p><strong>Analysis:</strong> Requirement Gathering, Problem Analysis & Solving, User-flow Design</p>
+                <p><strong>Documentation:</strong> Technical Specifications, Scientific Paper Writing</p>
+                <p><strong>Soft Skills:</strong> Collaboration, Public Speaking, Time Management</p>
+                <p><strong>Tools:</strong> PostMan, GitHub, AWS, MS Office</p>
+                <h3>Hobby</h3>
+                <ul>
+                    <li>Exploring scientific materials</li>
+                    <li>Evaluating tech solutions</li>
+                    <li>Walking</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Professional Career Objective</h2>
+                <p>A technology-driven student with a strong passion for continuous learning, hands-on skill development, and exposure to modern technology solutions. I am eager to work with advanced systems while learning from experienced engineering teams. My long-term goal is to become a professional business analyst and eventually lead major project initiatives.</p>
+                
+                <h2>Analytical Experience & Projects</h2>
+                <div class="project-card">
+                    <h3>1) Health Monitoring and Stroke Warning System (BA & ML Analysis)</h3>
+                    <span class="tech-list">StarUML, Figma, Machine Learning Logic, System Analysis</span>
+                    <p><strong>Responsibilities:</strong> Analyzed user requirements for stroke warning, designed system architecture, handled evolving technical requirements between IoT hardware and Software, documented logic for ML integration.</p>
+                    <p><strong>Achievements:</strong> Published IEEE international paper based on system analysis; "Innovation for Community Health" Award.</p>
+                </div>
+                <div class="project-card">
+                    <h3>2) Weather Social Network (System Analysis)</h3>
+                    <span class="tech-list">Requirement Gathering, User Logic, Database Modeling, Figma</span>
+                    <p><strong>Responsibilities:</strong> Defined user-flow for social features, analyzed MQTT protocol requirements for live data, designed UI/UX mockups in Figma, managed project documentation and GitHub workflow.</p>
+                </div>
+                <h2>Honors & Awards</h2>
+                <ul>
+                    <li>Excellent Academic Encouragement Scholarship (2023-2024)</li>
+                    <li>Published international scientific paper in IEEE journal (5/2025)</li>
+                    <li>"Innovation for Community Health" Award from Viettel IDC Group</li>
+                    <li>First Prize, Faculty Scientific Research Competition</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="Transcript" class="content">
+        <h2>Bảng điểm quá trình học tập - Đại học Sư phạm Kỹ thuật</h2>
+        <p><strong>Mã sinh viên:</strong> 22115053122304 [cite: 237] | <strong>Lớp:</strong> 2213 [cite: 243] | <strong>GPA tích lũy:</strong> 3.68/4.0 [cite: 310]</p>
+
+        <h3>Học kỳ 1 Năm học 2022-2023 [cite: 251]</h3>
         <table>
             <thead>
-                <tr>
-                    <th>Subject</th>
-                    <th>Credits</th>
-                    <th>Score (10)</th>
-                    <th>Grade</th>
-                </tr>
+                <tr><th>STT</th><th>Tên học phần</th><th>Số TC</th><th>Điểm (10)</th><th>Điểm Chữ</th></tr>
             </thead>
             <tbody>
-                <tr><td>Computer Maintenance</td><td>2.0</td><td>8.7</td><td>A</td></tr>
-                <tr><td>IT Specialized English</td><td>2.0</td><td>9.4</td><td>A</td></tr>
-                <tr><td>E-Commerce</td><td>3.0</td><td>9.0</td><td>A</td></tr>
-                <tr><td>Artificial Intelligence</td><td>3.0</td><td>6.4</td><td>C</td></tr>
-                <tr><td>Programming Language Topics</td><td>3.0</td><td>9.0</td><td>A</td></tr>
-                <tr><td>Wireless Network Technology</td><td>2.0</td><td>8.5</td><td>A</td></tr>
-                <tr><td>IT Project Management</td><td>2.0</td><td>8.4</td><td>B</td></tr>
-                <tr><td>Software Project</td><td>2.0</td><td>9.2</td><td>A</td></tr>
+                <tr><td>1</td><td>Ngoại Ngữ cơ bản</td><td>3.0</td><td>10.0</td><td class="excellent">A</td></tr>
             </tbody>
         </table>
-        <div class="gpa-box">
-            Cumulative GPA: 3.68 / 4.0 (Excellent Classification)
-        </div>
+
+        <h3>Học kỳ II Năm học 2022-2023 [cite: 263]</h3>
+        <table>
+            <thead>
+                <tr><th>STT</th><th>Tên học phần</th><th>Số TC</th><th>Điểm (10)</th><th>Điểm Chữ</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Đại số tuyến tính</td><td>2.0</td><td>9.5</td><td class="excellent">A</td></tr>
+                <tr><td>2</td><td>Giải tích 1</td><td>3.0</td><td>9.0</td><td class="excellent">A</td></tr>
+                <tr><td>3</td><td>Kỹ năng giao tiếp</td><td>1.0</td><td>9.5</td><td class="excellent">A</td></tr>
+                <tr><td>4</td><td>Lập trình cơ bản với C</td><td>3.0</td><td>7.8</td><td>B</td></tr>
+                <tr><td>5</td><td>Nhập môn ngành CNTT</td><td>2.0</td><td>8.8</td><td class="excellent">A</td></tr>
+                <tr><td>6</td><td>Ngoại Ngữ 1</td><td>3.0</td><td>7.7</td><td>B</td></tr>
+                <tr><td>7</td><td>Tin học cơ bản</td><td>2.0</td><td>8.6</td><td class="excellent">A</td></tr>
+                <tr><td>8</td><td>TH Lập trình cơ bản với C</td><td>1.0</td><td>10.0</td><td class="excellent">A</td></tr>
+                <tr><td>9</td><td>Vật lý Cơ - Quang</td><td>2.0</td><td>9.6</td><td class="excellent">A</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Học kỳ I Năm học 2023-2024 [cite: 266]</h3>
+        <table>
+            <thead>
+                <tr><th>STT</th><th>Tên học phần</th><th>Số TC</th><th>Điểm (10)</th><th>Điểm Chữ</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Cơ sở dữ liệu</td><td>2.0</td><td>9.4</td><td class="excellent">A</td></tr>
+                <tr><td>2</td><td>Cấu trúc máy tính</td><td>2.0</td><td>6.4</td><td>C</td></tr>
+                <tr><td>3</td><td>Kỹ năng làm việc nhóm</td><td>1.0</td><td>9.1</td><td class="excellent">A</td></tr>
+                <tr><td>4</td><td>Mạng Máy tính</td><td>2.0</td><td>7.1</td><td>B</td></tr>
+                <tr><td>5</td><td>Ngoại Ngữ</td><td>2.0</td><td>7.8</td><td>B</td></tr>
+                <tr><td>6</td><td>Pháp luật đại cương</td><td>2.0</td><td>9.3</td><td class="excellent">A</td></tr>
+                <tr><td>7</td><td>TH Cơ sở dữ liệu 1</td><td>1.0</td><td>9.7</td><td class="excellent">A</td></tr>
+                <tr><td>8</td><td>Triết học Mác-Lênin</td><td>3.0</td><td>7.2</td><td>B</td></tr>
+                <tr><td>9</td><td>Thiết kế Web</td><td>2.0</td><td>8.1</td><td>B</td></tr>
+                <tr><td>10</td><td>TH Mạng Máy tính</td><td>1.0</td><td>8.7</td><td class="excellent">A</td></tr>
+                <tr><td>11</td><td>TH Thiết kế Web</td><td>1.0</td><td>8.8</td><td class="excellent">A</td></tr>
+                <tr><td>12</td><td>Vẽ kỹ thuật</td><td>2.0</td><td>10.0</td><td class="excellent">A</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Học kỳ II Năm học 2023-2024 [cite: 285]</h3>
+        <table>
+            <thead>
+                <tr><th>STT</th><th>Tên học phần</th><th>Số TC</th><th>Điểm (10)</th><th>Điểm Chữ</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Chủ nghĩa xã hội khoa học</td><td>2.0</td><td>8.7</td><td class="excellent">A</td></tr>
+                <tr><td>2</td><td>Cơ sở dữ liệu</td><td>2.0</td><td>9.0</td><td class="excellent">A</td></tr>
+                <tr><td>3</td><td>Cấu trúc dữ liệu & giải thuật</td><td>3.0</td><td>9.2</td><td class="excellent">A</td></tr>
+                <tr><td>4</td><td>Kinh tế chính trị</td><td>2.0</td><td>8.8</td><td class="excellent">A</td></tr>
+                <tr><td>5</td><td>Lịch sử Đảng Cộng sản Việt Nam</td><td>2.0</td><td>9.2</td><td class="excellent">A</td></tr>
+                <tr><td>6</td><td>Lập trình hướng đối tượng</td><td>2.0</td><td>8.6</td><td class="excellent">A</td></tr>
+                <tr><td>7</td><td>Ngoại ngữ</td><td>2.0</td><td>7.3</td><td>B</td></tr>
+                <tr><td>8</td><td>TH CTDL & Giải thuật</td><td>1.0</td><td>9.3</td><td class="excellent">A</td></tr>
+                <tr><td>9</td><td>TH Cơ sở dữ liệu</td><td>1.0</td><td>8.7</td><td class="excellent">A</td></tr>
+                <tr><td>10</td><td>TH Lập trình HDT</td><td>1.0</td><td>9.0</td><td class="excellent">A</td></tr>
+                <tr><td>11</td><td>Toán rời rạc</td><td>3.0</td><td>9.1</td><td class="excellent">A</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Học kỳ I Năm học 2024-2025 [cite: 291]</h3>
+        <table>
+            <thead>
+                <tr><th>STT</th><th>Tên học phần</th><th>Số TC</th><th>Điểm (10)</th><th>Điểm Chữ</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Đổi mới, sáng tạo, khởi nghiệp</td><td>2.0</td><td>9.7</td><td class="excellent">A</td></tr>
+                <tr><td>2</td><td>Chuyên đề Cơ sở dữ liệu</td><td>2.0</td><td>9.2</td><td class="excellent">A</td></tr>
+                <tr><td>3</td><td>Đồ họa máy tính</td><td>2.0</td><td>9.0</td><td class="excellent">A</td></tr>
+                <tr><td>4</td><td>Kỹ Thuật Điện Tử</td><td>2.0</td><td>8.2</td><td>B</td></tr>
+                <tr><td>5</td><td>Lập trình C#</td><td>2.0</td><td>7.0</td><td>B</td></tr>
+                <tr><td>6</td><td>Lý thuyết đồ thị</td><td>2.0</td><td>10.0</td><td class="excellent">A</td></tr>
+                <tr><td>7</td><td>Lập trình Java nâng cao</td><td>2.0</td><td>9.2</td><td class="excellent">A</td></tr>
+                <tr><td>8</td><td>Lập trình trực quan</td><td>2.0</td><td>9.6</td><td class="excellent">A</td></tr>
+                <tr><td>9</td><td>Phân tích thiết kế hướng đối tượng</td><td>3.0</td><td>9.6</td><td class="excellent">A</td></tr>
+                <tr><td>10</td><td>TH Lập trình C#</td><td>1.0</td><td>9.3</td><td class="excellent">A</td></tr>
+                <tr><td>11</td><td>TH Đồ họa máy tính</td><td>1.0</td><td>9.4</td><td class="excellent">A</td></tr>
+                <tr><td>12</td><td>TH Lập trình Java nâng cao</td><td>1.0</td><td>9.3</td><td class="excellent">A</td></tr>
+                <tr><td>13</td><td>TH Lập trình trực quan</td><td>1.0</td><td>9.6</td><td class="excellent">A</td></tr>
+                <tr><td>14</td><td>Xác suất Thống kê</td><td>2.0</td><td>9.0</td><td class="excellent">A</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Học kỳ 1 Năm học 2024-2025 (Kỳ tiếp) [cite: 299]</h3>
+        <table>
+            <thead>
+                <tr><th>STT</th><th>Tên học phần</th><th>Số TC</th><th>Điểm (10)</th><th>Điểm Chữ</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Công nghệ phần mềm</td><td>2.0</td><td>8.4</td><td>B</td></tr>
+                <tr><td>2</td><td>Công Nghệ XML</td><td>2.0</td><td>9.0</td><td class="excellent">A</td></tr>
+                <tr><td>3</td><td>Lập trình trên ĐTDD</td><td>2.0</td><td>8.5</td><td class="excellent">A</td></tr>
+                <tr><td>4</td><td>Lập trình web nâng cao</td><td>2.0</td><td>9.8</td><td class="excellent">A</td></tr>
+                <tr><td>5</td><td>Quản trị Mạng</td><td>2.0</td><td>8.2</td><td>B</td></tr>
+                <tr><td>6</td><td>TH Công Nghệ XML</td><td>1.0</td><td>9.0</td><td class="excellent">A</td></tr>
+                <tr><td>7</td><td>TH Lập trình trên ĐTDĐ</td><td>1.0</td><td>8.8</td><td class="excellent">A</td></tr>
+                <tr><td>8</td><td>TH Lập trình web nâng cao</td><td>1.0</td><td>9.3</td><td class="excellent">A</td></tr>
+                <tr><td>9</td><td>TH Quản trị Mạng</td><td>1.0</td><td>10.0</td><td class="excellent">A</td></tr>
+                <tr><td>10</td><td>Thiết kế giao diện người dùng</td><td>2.0</td><td>9.5</td><td class="excellent">A</td></tr>
+                <tr><td>11</td><td>Điện toán đám mây</td><td>2.0</td><td>8.1</td><td>B</td></tr>
+                <tr><td>12</td><td>TTCM Thiết kế Cơ sở dữ liệu</td><td>2.0</td><td>9.2</td><td class="excellent">A</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Học kỳ Năm học 2025-2026 [cite: 305]</h3>
+        <table>
+            <thead>
+                <tr><th>STT</th><th>Tên học phần</th><th>Số TC</th><th>Điểm (10)</th><th>Điểm Chữ</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Kỹ năng lãnh đạo, quản lý</td><td>2.0</td><td>7.4</td><td>B</td></tr>
+                <tr><td>2</td><td>Bảo trì máy tính</td><td>2.0</td><td>8.7</td><td class="excellent">A</td></tr>
+                <tr><td>3</td><td>Ngoại ngữ chuyên ngành CNTT</td><td>2.0</td><td>9.4</td><td class="excellent">A</td></tr>
+                <tr><td>4</td><td>Thương mại điện tử</td><td>3.0</td><td>9.0</td><td class="excellent">A</td></tr>
+                <tr><td>5</td><td>Trí tuệ nhân tạo</td><td>3.0</td><td>6.4</td><td>C</td></tr>
+                <tr><td>6</td><td>Chuyên đề ngôn ngữ lập trình</td><td>3.0</td><td>9.0</td><td class="excellent">A</td></tr>
+                <tr><td>7</td><td>Công nghệ mạng không dây</td><td>2.0</td><td>8.5</td><td class="excellent">A</td></tr>
+                <tr><td>8</td><td>Quản trị dự án CNTT</td><td>2.0</td><td>8.4</td><td>B</td></tr>
+                <tr><td>9</td><td>Đồ án phần mềm</td><td>2.0</td><td>9.2</td><td class="excellent">A</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Tổng kết quá trình học tập</h3>
+        <ul>
+            <li>Tổng số tín chỉ tích lũy: 127</li>
+            <li>Điểm trung bình tích lũy (Hệ 4): 3.68/4.0 </li>
+            <li>Điểm trung bình tích lũy (Hệ 10): 8.70/10 </li>
+            <li>Xếp loại: Xuất sắc [cite: 314]</li>
+        </ul>
     </div>
 </div>
 
 <script>
-    function showTab(evt, tabId) {
-        var i, tabContent, tabBtn;
-        tabContent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabContent.length; i++) {
-            tabContent[i].style.display = "none";
-        }
-        tabBtn = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < tabBtn.length; i++) {
-            tabBtn[i].className = tabBtn[i].className.replace(" active", "");
-        }
-        document.getElementById(tabId).style.display = "block";
+    function openTab(evt, tabName) {
+        var i, content, tablinks;
+        content = document.getElementsByClassName("content");
+        for (i = 0; i < content.length; i++) { content[i].style.display = "none"; }
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+        document.getElementById(tabName).style.display = "block";
         evt.currentTarget.className += " active";
     }
 </script>
