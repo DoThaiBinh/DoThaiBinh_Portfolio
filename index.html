@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do Thai Binh - Comprehensive Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --secondary-blue: #e7f1ff;
+            --text-dark: #333;
+            --text-light: #555;
+            --white: #ffffff;
+            --border: #dee2e6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f7f9;
+            color: var(--text-dark);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #004a99 0%, #0066cc 100%);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header-content h1 { margin: 0; font-size: 2.8rem; text-transform: uppercase; }
+        .contact-info { margin-top: 15px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .contact-info span, .contact-info a { color: white; text-decoration: none; font-size: 0.95rem; }
+
+        .tabs-wrapper {
+            max-width: 1200px;
+            margin: -20px auto 50px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .tab-bar {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid var(--primary-blue);
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            padding: 18px 25px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--text-light);
+            white-space: nowrap;
+            transition: 0.3s;
+            flex: 1;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .tab-content { display: none; padding: 40px; animation: fadeIn 0.4s ease; }
+        .tab-content.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* CV Structure Styling */
+        .cv-grid { display: grid; grid-template-columns: 300px 1fr; gap: 40px; }
+        .cv-sidebar { border-right: 1px solid var(--border); padding-right: 20px; }
+        .section-title {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 5px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .project-item {
+            background: #fafafa;
+            border: 1px solid var(--border);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-blue);
+        }
+        .project-title { font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 5px; }
+        .tech-stack { font-style: italic; color: var(--primary-blue); font-size: 0.9rem; margin-bottom: 10px; display: block; }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+
+        /* Transcript Table */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background: var(--primary-blue); color: white; padding: 12px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #eee; }
+        .gpa-box {
+            background: var(--secondary-blue);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        @media (max-width: 900px) {
+            .cv-grid { grid-template-columns: 1fr; }
+            .cv-sidebar { border-right: none; padding-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <h1>DO THAI BINH</h1>
+        <div class="contact-info">
+            <span><i class="fas fa-calendar"></i> 21/11/2004</span>
+            <span><i class="fas fa-envelope"></i> dothaibinh021218@gmail.com</span>
+            <span><i class="fas fa-phone"></i> 0839976113</span>
+            <span><i class="fas fa-map-marker-alt"></i> Hai Chau, Da Nang City</span>
+        </div>
+    </div>
+</header>
+
+<div class="tabs-wrapper">
+    <div class="tab-bar">
+        <button class="tab-btn active" onclick="showTab(event, 'sw')">Software Developer</button>
+        <button class="tab-btn" onclick="showTab(event, 'android')">Android Developer</button>
+        <button class="tab-btn" onclick="showTab(event, 'dotnet')">.NET Developer</button>
+        <button class="tab-btn" onclick="showTab(event, 'ba')">Business Analyst</button>
+        <button class="tab-btn" onclick="showTab(event, 'transcript')">Academic Transcript</button>
+    </div>
+
+    <div id="sw" class="tab-content active">
+        <div class="cv-grid">
+            <div class="cv-sidebar">
+                <h3 class="section-title">Education</h3>
+                <p><strong>University of Technology and Education - UD</strong><br>Final-year student<br>Major: IT | GPA: 3.68</p>
+                
+                <h3 class="section-title">Skills</h3>
+                <p><strong>Languages:</strong> Java (Mobile), C# (Web), Python, C++, FastAPI</p>
+                <p><strong>Database:</strong> SQL Server, MySQL, MongoDB</p>
+                <p><strong>Tools:</strong> GitHub, Docker, Figma, StarUML, PostMan, AWS</p>
+                <p><strong>English:</strong> TOEIC 550, Technical Reading</p>
+                
+                <h3 class="section-title">Hobby</h3>
+                <ul>
+                    <li>Reading scientific materials</li>
+                    <li>Watching science films</li>
+                    <li>Learning new tech solutions</li>
+                </ul>
+            </div>
+            <div class="cv-main">
+                <h3 class="section-title">Professional Objective</h3>
+                <p>A technology-driven student with a strong passion for continuous learning, hands-on skill development, and exposure to modern technology solutions. I am eager to work with advanced systems while learning from experienced engineering teams. My long-term goal is to become a professional business analyst and eventually lead major project initiatives.</p>
+                
+                <h3 class="section-title">Experience & Projects</h3>
+                <div class="project-item">
+                    <span class="project-title">1) Stroke Risk Warning System (IoT & ML)</span>
+                    <span class="tech-stack">Technologies: Java (Android), Retrofit, REST API, SQL Server, GitHub, Docker, IoT, C++, C#, .NET, Machine Learning</span>
+                    <p><strong>Role:</strong> Software Developer</p>
+                    <p><strong>Responsibilities:</strong> User-flow and logic implementation, database design, UI layout design, API development, ML integration using logistic regression, IoT system with ESP32-C3, SMS and GPS integration.</p>
+                </div>
+                <div class="project-item">
+                    <span class="project-title">2) Weather Social Network App</span>
+                    <span class="tech-stack">Technologies: Java, Retrofit, REST API, MQTT, Cloudinary, IoT, C++</span>
+                    <p><strong>Responsibilities:</strong> User logic, DB design, MQTT configuration, cloud storage, IoT system development using ESP32-Cam.</p>
+                </div>
+
+                <h3 class="section-title">Honors and Awards</h3>
+                <ul>
+                    <li>Excellent Academic Encouragement Scholarship (2023–2024)</li>
+                    <li>UTE Challenge Scholarship (2024–2025)</li>
+                    <li>Published international paper in IEEE (May 2025)</li>
+                    <li>First Prize, Faculty Scientific Research Competition</li>
+                    <li>"Innovation for Community Health" Award - Viettel IDC</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="android" class="tab-content">
+        <div class="cv-grid">
+            <div class="cv-sidebar">
+                <h3 class="section-title">Skills</h3>
+                <p><strong>Android:</strong> Java, Retrofit, UI Layout Design</p>
+                <p><strong>Backend:</strong> REST API, SQL Server</p>
+                <p><strong>Others:</strong> Docker, Git, IoT integration</p>
+            </div>
+            <div class="cv-main">
+                <h3 class="section-title">Career Objective</h3>
+                <p>My long-term goal is to become a professional software developer and eventually lead high-performance project teams.</p>
+                <h3 class="section-title">Android Projects</h3>
+                <div class="project-item">
+                    <span class="project-title">Health Monitoring and Stroke Warning System</span>
+                    <p>Focusing on mobile UI/UX and real-time data from sensors. Implementation of GPS and SMS alerts for emergency cases.</p>
+                </div>
+                <div class="project-item">
+                    <span class="project-title">Weather Social Network</span>
+                    <p>Role: Project Administrator. Implementing social features: messages, comments, and live image streaming from IoT cameras.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dotnet" class="tab-content">
+        <div class="cv-main">
+            <h3 class="section-title">Professional Career Objective</h3>
+            <p>Mong muốn trở thành lập trình viên chuyên nghiệp và người dẫn đầu của các nhóm dự án .NET.</p>
+            
+            <h3 class="section-title">Experience & Products</h3>
+            <div class="project-item">
+                <span class="project-title">1) Personal Finance Management System</span>
+                <span class="tech-stack">Tech: C#, .NET, ASP.NET, Java Android, SQL Server, Restful API</span>
+                <p><strong>Position:</strong> Leader, Developer</p>
+                <p><strong>Responsibilities:</strong> Task assignment, user logic, database design, API development, Android layout development.</p>
+            </div>
+            <div class="project-item">
+                <span class="project-title">2) Weather Social Network System</span>
+                <p>Role: Developer & Project Manager. Configuring MQTT protocols and cloud-based image storage.</p>
+            </div>
+            
+            <h3 class="section-title">Technical Skills</h3>
+            <ul>
+                <li><strong>Languages:</strong> C#, MVC, ASP.NET, Entity Framework, RESTful API.</li>
+                <li><strong>Databases:</strong> SQL Server, MySQL.</li>
+                <li><strong>Soft Skills:</strong> Team leadership (Small/Medium teams), Public speaking.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="ba" class="tab-content">
+        <div class="cv-grid">
+            <div class="cv-sidebar">
+                <h3 class="section-title">BA Competencies</h3>
+                <ul>
+                    <li>Problem analysis and solving</li>
+                    <li>Requirement Gathering</li>
+                    <li>StarUML & Figma Prototyping</li>
+                    <li>Effective teamwork</li>
+                </ul>
+            </div>
+            <div class="cv-main">
+                <h3 class="section-title">BA Career Objective</h3>
+                <p>I am eager to work with advanced systems while learning from experienced engineering teams. My long-term goal is to become a professional business analyst.</p>
+                <h3 class="section-title">Analytical Experience</h3>
+                <div class="project-item">
+                    <span class="project-title">System Analysis - Stroke Warning Project</span>
+                    <p>Effectively analyzed and addressed evolving technical requirements. Published scientific paper based on system analysis results.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="transcript" class="tab-content">
+        <h3 class="section-title">Academic Record (Semester 1, 2025-2026)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Credits</th>
+                    <th>Score (10)</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Computer Maintenance</td><td>2.0</td><td>8.7</td><td>A</td></tr>
+                <tr><td>IT Specialized English</td><td>2.0</td><td>9.4</td><td>A</td></tr>
+                <tr><td>E-Commerce</td><td>3.0</td><td>9.0</td><td>A</td></tr>
+                <tr><td>Artificial Intelligence</td><td>3.0</td><td>6.4</td><td>C</td></tr>
+                <tr><td>Programming Language Topics</td><td>3.0</td><td>9.0</td><td>A</td></tr>
+                <tr><td>Wireless Network Technology</td><td>2.0</td><td>8.5</td><td>A</td></tr>
+                <tr><td>IT Project Management</td><td>2.0</td><td>8.4</td><td>B</td></tr>
+                <tr><td>Software Project</td><td>2.0</td><td>9.2</td><td>A</td></tr>
+            </tbody>
+        </table>
+        <div class="gpa-box">
+            Cumulative GPA: 3.68 / 4.0 (Excellent Classification)
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTab(evt, tabId) {
+        var i, tabContent, tabBtn;
+        tabContent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+        }
+        tabBtn = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tabBtn.length; i++) {
+            tabBtn[i].className = tabBtn[i].className.replace(" active", "");
+        }
+        document.getElementById(tabId).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+
+</body>
+</html>
