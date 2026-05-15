@@ -53,6 +53,34 @@
         .excellent { color: #27ae60; font-weight: bold; }
 
         @media (max-width: 992px) { .cv-grid { grid-template-columns: 1fr; } .sidebar { order: 2; } }
+        /* Bố cục lưới cho nhiều hình ảnh */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .image-item {
+            width: 100%;
+            aspect-ratio: 4/3; /* Giữ tỉ lệ ảnh đồng nhất */
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .image-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Tùy chỉnh cho dự án có nội dung dài và ảnh bên dưới */
+        .project-info {
+            flex: 1;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -73,6 +101,7 @@
         <button class="tab-btn" onclick="openTab(event, 'Android')">Android Developer</button>
         <button class="tab-btn" onclick="openTab(event, 'DotNet')">.NET Developer</button>
         <button class="tab-btn" onclick="openTab(event, 'BA')">Business Analyst</button>
+        <button class="tab-btn" onclick="openTab(event, 'Awards')">Awards</button>
         <button class="tab-btn" onclick="openTab(event, 'Transcript')">Academic Transcript</button>
     </div>
 
@@ -183,7 +212,7 @@
             </div>
             <div>
                 <h2>Professional Career Objective</h2>
-                <p>Là một sinh viên đam mê công nghệ, mong muốn được trau dồi kiến thức, kỹ năng thực tế và tiếp cận với các giải pháp công nghệ hiện đại. Mong muốn có cơ hội làm việc với các hệ thống tiến tiến, đồng thời học hỏi từ đội ngũ kỹ sư giàu kinh nghiệm. Tương lai sẽ trở thành lập trình viên chuyên nghiệp và trở thành người dẫn đầu của các nhóm dự án .NET.</p>
+                <p>Results-driven Software Developer with an award-winning research background in full-stack and IoT systems. Eager to solve complex business challenges and advance into a leadership role managing large-scale technical projects.</p>
                 
                 <h2>Experience & Products</h2>
                 <div class="project-card">
@@ -252,7 +281,86 @@
             </div>
         </div>
     </div>
+    <div id="Awards" class="content">
+        <div class="cv-grid">
+            <div class="sidebar">
+                <h3>Recognition Summary</h3>
+                <p><strong>International:</strong> IEEE Publication</p>
+                <p><strong>National:</strong> Viettel IDC Award</p>
+                <p><strong>Research:</strong> 1st Prize Faculty</p>
+            </div>
+            <div>
+                <h2>Honors & Distinguished Awards</h2>
+                
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>"Innovation for Community Health" Award</h3>
+                        <span class="tech-list">Viettel IDC Group | Jun 2025</span>
+                        <p>“Innovation for Community Health” Award from Viettel IDC Group</p>
+                    </div>
+                    <div class="image-gallery">
+                        <img src="IDC1.png" class="image-item" alt="Giấy khen Viettel">
+                        <img src="IDC2.png" class="image-item" alt="Trao giải">
+                    </div>
+                </div>
 
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>IEEE International Scientific Publication</h3>
+                        <span class="tech-list">IEEE Xplore | May 2025</span>
+                        <p>Published international scientific paper titled “Design of Stroke Risk Warning System Based on Internet Of Things (IoT) Technology and Machine Learning Model”</p>
+                        
+                        <p>Link Paper: https://ieeexplore.ieee.org/document/11142086</p>
+                    </div>
+                    <div class="image-gallery">
+                        <img src="atigb1.png" class="image-item" alt="Tham dự tổng kết">
+                        <img src="atigb2.png" class="image-item" alt="Chứng nhận IEEE">
+                        <img src="atigb3.png" class="image-item" alt="Best poster">
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Scientific Research Competition in Digital Technology</h3>
+                        <span class="tech-list">May 2025</span>
+                        <p>First Prize, Faculty Scientific Research Competition in Digital Technology, University of Technology and Education</p>
+                    </div>
+                    <div class="image-gallery">
+                        <img src="g1.png" class="image-item" alt="Tham dự tổng kết">
+                        <img src="xx.png" class="image-item" alt="sinh viên xuất sắc">
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>University-level Scientific Research Competition</h3>
+                        <span class="tech-list">Jun 2025</span>
+                        <p>Consolation Prize, University-level Scientific Research Competition, The University of Danang</p>
+                    </div>
+                    <div class="image-gallery">
+                        <img src="KK.png" class="image-item" alt="Giấy khen">
+                        <img src="DN1.png" class="image-item" alt="triển lãm">
+                        <img src="DN2.png" class="image-item" alt="trình bày">
+                        <img src="DN3.png" class="image-item" alt="trình bày">
+                        
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Awarded the UTE Challenge Scholarship for the academic year 2024–2025</h3>
+                       
+                        <p>This is the most prestigious award at UTE University this academic year, and students must put in a great deal of effort in all aspects to be able to achieve this scholarship.</p>
+                    </div>
+                    <div class="image-gallery">
+                        <img src="UTE.png" class="image-item" alt="trao thưởng">
+                        <img src="UTE2.png" class="image-item" alt="Giấy khen">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="Transcript" class="content">
         <h2>Bảng điểm quá trình học tập - Đại học Sư phạm Kỹ thuật</h2>
         <p><strong>Mã sinh viên:</strong> 22115053122304 [cite: 237] | <strong>Lớp:</strong> 2213 [cite: 243] | <strong>GPA tích lũy:</strong> 3.68/4.0 [cite: 310]</p>
@@ -391,7 +499,7 @@
         <h3>Tổng kết quá trình học tập</h3>
         <ul>
             <li>Tổng số tín chỉ tích lũy: 127</li>
-            <li>Điểm trung bình tích lũy (Hệ 4): 3.68/4.0 </li>
+            <li>Điểm trung bình tích lũy (Hệ 4): 3.67/4.0 </li>
             <li>Điểm trung bình tích lũy (Hệ 10): 8.70/10 </li>
             <li>Xếp loại: Xuất sắc [cite: 314]</li>
         </ul>
