@@ -1,308 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do Thai Binh - Comprehensive Portfolio</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-blue: #0056b3;
-            --secondary-blue: #e7f1ff;
-            --text-dark: #333;
-            --text-light: #555;
-            --white: #ffffff;
-            --border: #dee2e6;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do Thai Binh – Software Engineer (AI & Full-stack)</title>
+<meta name="description" content="Portfolio of Do Thai Binh, Software Engineer in Da Nang, Vietnam – AI-powered applications (LLM, RAG, computer vision), full-stack development and IoT systems. Two IEEE publications.">
+<meta name="theme-color" content="#0b1020">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Do Thai Binh – Software Engineer (AI & Full-stack)">
+<meta property="og:description" content="AI-powered applications, full-stack development and IoT systems. Two IEEE publications, three industry roles, six end-to-end projects.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='white'%3EDB%3C/text%3E%3C/svg%3E">
+<style>
+:root {
+  --bg: #f6f7fb; --surface: #ffffff; --surface-2: #eef1f8; --text: #0f172a; --muted: #55607a; --line: #dde3ef;
+  --accent: #2563eb; --accent-2: #0d9488; --accent-soft: #e4ecff; --on-accent: #ffffff; --shadow: 0 8px 28px rgba(15,23,42,.08);
+  --hero-a: rgba(37,99,235,.16); --hero-b: rgba(13,148,136,.14);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1020; --surface: #121a30; --surface-2: #18223d; --text: #e8ecf6; --muted: #9aa5bd; --line: #243050;
+    --accent: #6ea8ff; --accent-2: #3dd6c6; --accent-soft: #1a2a50; --on-accent: #0b1020; --shadow: 0 8px 28px rgba(0,0,0,.35);
+    --hero-a: rgba(110,168,255,.18); --hero-b: rgba(61,214,198,.12);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1020; --surface: #121a30; --surface-2: #18223d; --text: #e8ecf6; --muted: #9aa5bd; --line: #243050;
+  --accent: #6ea8ff; --accent-2: #3dd6c6; --accent-soft: #1a2a50; --on-accent: #0b1020; --shadow: 0 8px 28px rgba(0,0,0,.35);
+  --hero-a: rgba(110,168,255,.18); --hero-b: rgba(61,214,198,.12);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+section { padding: 72px 0 8px; }
+.eyebrow { color: var(--accent); font-weight: 700; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 8px; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); line-height: 1.2; margin: 0 0 10px; letter-spacing: -.01em; }
+.section-lead { color: var(--muted); max-width: 70ch; margin: 0 0 30px; }
+h3 { margin: 0 0 6px; font-size: 1.15rem; line-height: 1.3; }
 
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f4f7f9;
-            color: var(--text-dark);
-            margin: 0;
-            line-height: 1.6;
-        }
+/* nav */
+.nav { position: sticky; top: 0; z-index: 30; backdrop-filter: blur(12px); background: color-mix(in srgb, var(--bg) 82%, transparent); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; gap: 18px; height: 60px; }
+.brand { font-weight: 800; letter-spacing: .02em; color: var(--text); }
+.brand span { color: var(--accent); }
+.nav ul { display: flex; gap: 4px; list-style: none; margin: 0 0 0 auto; padding: 0; overflow-x: auto; scrollbar-width: none; }
+.nav ul a { display: block; padding: 8px 12px; border-radius: 8px; color: var(--muted); font-weight: 600; font-size: .92rem; white-space: nowrap; }
+.nav ul a:hover { background: var(--surface-2); color: var(--text); text-decoration: none; }
+.icon-btn { border: 1px solid var(--line); background: var(--surface); color: var(--text); width: 38px; height: 38px; border-radius: 10px; cursor: pointer; font-size: 1rem; flex: none; }
+.icon-btn:hover { border-color: var(--accent); }
 
-        header {
-            background: linear-gradient(135deg, #004a99 0%, #0066cc 100%);
-            color: var(--white);
-            padding: 40px 20px;
-            text-align: center;
-        }
+/* hero */
+.hero { padding: 64px 0 36px; background: radial-gradient(700px 320px at 10% 0%, var(--hero-a), transparent 70%), radial-gradient(600px 300px at 95% 10%, var(--hero-b), transparent 70%); }
+.hero-grid { display: grid; grid-template-columns: 1fr 150px; gap: 36px; align-items: center; }
+.avatar { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; object-position: center 20%; border: 4px solid var(--surface); box-shadow: var(--shadow); justify-self: end; }
+.hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.12; margin: 6px 0 16px; letter-spacing: -.02em; }
+.grad { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lead { font-size: 1.12rem; color: var(--muted); max-width: 62ch; margin: 0 0 22px; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 10px; font-weight: 700; border: 1px solid var(--line); background: var(--surface); color: var(--text); }
+.btn:hover { border-color: var(--accent); text-decoration: none; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn.primary:hover { filter: brightness(1.08); }
+.open-to { color: var(--muted); font-size: .92rem; }
+.open-to b { color: var(--text); }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 34px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; box-shadow: var(--shadow); }
+.stat b { display: block; font-size: 1.7rem; line-height: 1.1; color: var(--accent); }
+.stat span { color: var(--muted); font-size: .88rem; }
 
-        .header-content h1 { margin: 0; font-size: 2.8rem; text-transform: uppercase; }
-        .contact-info { margin-top: 15px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .contact-info span, .contact-info a { color: white; text-decoration: none; font-size: 0.95rem; }
+/* cards */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; box-shadow: var(--shadow); }
+.card ul { margin: 10px 0 0; padding-left: 18px; color: var(--muted); font-size: .94rem; }
+.card li { margin-bottom: 4px; }
+.card .ico { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); font-weight: 800; margin-bottom: 12px; }
 
-        .tabs-wrapper {
-            max-width: 1200px;
-            margin: -20px auto 50px;
-            background: var(--white);
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
+/* timeline */
+.timeline { position: relative; margin: 0; padding: 0 0 0 26px; list-style: none; }
+.timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.job { position: relative; margin-bottom: 20px; }
+.job::before { content: ""; position: absolute; left: -26px; top: 26px; width: 16px; height: 16px; border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); }
+.job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+.job-head .when { color: var(--muted); font-weight: 600; font-size: .9rem; }
+.org { color: var(--accent); font-weight: 700; }
+.job ul { margin: 10px 0 0; padding-left: 18px; }
+.job li { margin-bottom: 6px; }
 
-        .tab-bar {
-            display: flex;
-            background: #f8f9fa;
-            border-bottom: 2px solid var(--primary-blue);
-            overflow-x: auto;
-        }
+/* chips */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
+.card ul.chips { padding: 0; margin: 12px 0 0; color: inherit; font-size: inherit; }
+.chips li { background: var(--surface-2); border: 1px solid var(--line); color: var(--text); border-radius: 999px; padding: 2px 11px; font-size: .8rem; font-weight: 600; }
 
-        .tab-btn {
-            padding: 18px 25px;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-weight: bold;
-            color: var(--text-light);
-            white-space: nowrap;
-            transition: 0.3s;
-            flex: 1;
-        }
+/* projects */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+.filters button { cursor: pointer; border: 1px solid var(--line); background: var(--surface); color: var(--muted); padding: 7px 15px; border-radius: 999px; font: inherit; font-weight: 700; font-size: .88rem; }
+.filters button:hover { border-color: var(--accent); color: var(--text); }
+.filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.project { display: flex; flex-direction: column; }
+.project[hidden] { display: none; }
+.badge { display: inline-block; font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 2px 9px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); margin: 0 6px 10px 0; }
+.badge.gold { background: #fdf0c8; color: #7a5600; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .badge.gold { background: #3a2f10; color: #f4cf6b; } }
+:root[data-theme="dark"] .badge.gold { background: #3a2f10; color: #f4cf6b; }
+.project p.sum { color: var(--muted); margin: 4px 0 12px; font-size: .96rem; }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 4px; list-style: none; margin: 0 0 14px; padding: 12px; background: var(--surface-2); border: 1px dashed var(--line); border-radius: 12px; font-size: .78rem; font-weight: 700; }
+.flow li { display: inline-flex; align-items: center; gap: 4px; }
+.flow li span { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 3px 9px; }
+.flow li:not(:last-child)::after { content: "→"; color: var(--accent); font-weight: 800; margin-left: 2px; }
+.project ul.points { margin: 0 0 12px; padding-left: 18px; font-size: .94rem; }
+.project ul.points li { margin-bottom: 5px; }
+.metrics { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+.metric { background: var(--accent-soft); color: var(--text); border-radius: 10px; padding: 6px 11px; font-size: .84rem; }
+.metric b { color: var(--accent); }
+.links { margin-top: auto; padding-top: 14px; display: flex; gap: 14px; flex-wrap: wrap; font-weight: 700; font-size: .92rem; }
+.more { margin-top: 20px; }
+.more .card { padding: 18px 22px; }
+.more h3 { font-size: 1rem; }
+.more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 12px; }
+.more-grid p { margin: 2px 0 0; color: var(--muted); font-size: .9rem; }
 
-        .tab-btn.active {
-            background: var(--primary-blue);
-            color: white;
-        }
+/* skills */
+.skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.skills .card { padding: 18px 20px; }
+.skills h3 { font-size: .98rem; margin-bottom: 0; }
+.skills .chips { margin-top: 10px; }
 
-        .tab-content { display: none; padding: 40px; animation: fadeIn 0.4s ease; }
-        .tab-content.active { display: block; }
+/* recognition */
+.pubs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 22px; }
+.pubs .card { border-left: 5px solid var(--accent); }
+.pubs small { color: var(--muted); display: block; margin-bottom: 6px; font-weight: 700; }
+.award { margin-bottom: 18px; }
+.award-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 14px; align-items: baseline; }
+.award-head .when { color: var(--muted); font-weight: 600; font-size: .9rem; }
+.award p { color: var(--muted); margin: 4px 0 0; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; margin-top: 14px; }
+.shot { padding: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface-2); cursor: zoom-in; aspect-ratio: 4/3; }
+.shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.shot:hover img { transform: scale(1.05); }
+dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 94vh; }
+dialog.lightbox::backdrop { background: rgba(5,8,18,.86); }
+dialog.lightbox img { max-width: 94vw; max-height: 86vh; border-radius: 10px; margin: 0 auto; }
+dialog.lightbox p { color: #e8ecf6; text-align: center; margin: 10px 0 0; font-size: .95rem; }
+dialog.lightbox form { position: absolute; top: -6px; right: -6px; }
+dialog.lightbox button { cursor: pointer; width: 38px; height: 38px; border-radius: 50%; border: 0; background: #fff; color: #111; font-size: 1.1rem; font-weight: 800; }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+/* education / contact */
+.edu { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; align-items: baseline; }
+.contact { text-align: center; padding: 34px 22px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); border: 0; color: #fff; }
+.contact h2 { color: #fff; }
+.contact p { color: rgba(255,255,255,.92); max-width: 60ch; margin: 0 auto 18px; }
+.contact .btn { background: #fff; color: #0f172a; border-color: #fff; }
+footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-size: .88rem; }
 
-        /* CV Structure Styling */
-        .cv-grid { display: grid; grid-template-columns: 300px 1fr; gap: 40px; }
-        .cv-sidebar { border-right: 1px solid var(--border); padding-right: 20px; }
-        .section-title {
-            color: var(--primary-blue);
-            border-bottom: 2px solid var(--primary-blue);
-            padding-bottom: 5px;
-            margin-top: 30px;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-        }
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.in { opacity: 1; transform: none; }
+.no-js .reveal { opacity: 1; transform: none; }
 
-        .project-item {
-            background: #fafafa;
-            border: 1px solid var(--border);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--primary-blue);
-        }
-        .project-title { font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 5px; }
-        .tech-stack { font-style: italic; color: var(--primary-blue); font-size: 0.9rem; margin-bottom: 10px; display: block; }
-
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
-
-        /* Transcript Table */
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th { background: var(--primary-blue); color: white; padding: 12px; text-align: left; }
-        td { padding: 12px; border-bottom: 1px solid #eee; }
-        .gpa-box {
-            background: var(--secondary-blue);
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-weight: bold;
-            text-align: right;
-        }
-
-        @media (max-width: 900px) {
-            .cv-grid { grid-template-columns: 1fr; }
-            .cv-sidebar { border-right: none; padding-right: 0; }
-        }
-    </style>
+@media (max-width: 900px) {
+  .grid-3, .skills, .more-grid { grid-template-columns: 1fr; }
+  .projects, .pubs { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .avatar { justify-self: start; width: 104px; height: 104px; order: -1; }
+  .nav ul { display: none; }
+  .nav .wrap { justify-content: space-between; }
+  .icon-btn { margin-left: auto; }
+}
+</style>
 </head>
-<body>
+<body class="no-js">
 
-<header>
-    <div class="header-content">
-        <h1>DO THAI BINH</h1>
-        <div class="contact-info">
-            <span><i class="fas fa-calendar"></i> 21/11/2004</span>
-            <span><i class="fas fa-envelope"></i> dothaibinh021218@gmail.com</span>
-            <span><i class="fas fa-phone"></i> 0839976113</span>
-            <span><i class="fas fa-map-marker-alt"></i> Hai Chau, Da Nang City</span>
-        </div>
-    </div>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">DO THAI <span>BINH</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#recognition">Recognition</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle light / dark theme" title="Toggle theme">&#9680;</button>
+  </div>
 </header>
 
-<div class="tabs-wrapper">
-    <div class="tab-bar">
-        <button class="tab-btn active" onclick="showTab(event, 'sw')">Software Developer</button>
-        <button class="tab-btn" onclick="showTab(event, 'android')">Android Developer</button>
-        <button class="tab-btn" onclick="showTab(event, 'dotnet')">.NET Developer</button>
-        <button class="tab-btn" onclick="showTab(event, 'ba')">Business Analyst</button>
-        <button class="tab-btn" onclick="showTab(event, 'transcript')">Academic Transcript</button>
-    </div>
-
-    <div id="sw" class="tab-content active">
-        <div class="cv-grid">
-            <div class="cv-sidebar">
-                <h3 class="section-title">Education</h3>
-                <p><strong>University of Technology and Education - UD</strong><br>Final-year student<br>Major: IT | GPA: 3.68</p>
-                
-                <h3 class="section-title">Skills</h3>
-                <p><strong>Languages:</strong> Java (Mobile), C# (Web), Python, C++, FastAPI</p>
-                <p><strong>Database:</strong> SQL Server, MySQL, MongoDB</p>
-                <p><strong>Tools:</strong> GitHub, Docker, Figma, StarUML, PostMan, AWS</p>
-                <p><strong>English:</strong> TOEIC 550, Technical Reading</p>
-                
-                <h3 class="section-title">Hobby</h3>
-                <ul>
-                    <li>Reading scientific materials</li>
-                    <li>Watching science films</li>
-                    <li>Learning new tech solutions</li>
-                </ul>
-            </div>
-            <div class="cv-main">
-                <h3 class="section-title">Professional Objective</h3>
-                <p>A technology-driven student with a strong passion for continuous learning, hands-on skill development, and exposure to modern technology solutions. I am eager to work with advanced systems while learning from experienced engineering teams. My long-term goal is to become a professional business analyst and eventually lead major project initiatives.</p>
-                
-                <h3 class="section-title">Experience & Projects</h3>
-                <div class="project-item">
-                    <span class="project-title">1) Stroke Risk Warning System (IoT & ML)</span>
-                    <span class="tech-stack">Technologies: Java (Android), Retrofit, REST API, SQL Server, GitHub, Docker, IoT, C++, C#, .NET, Machine Learning</span>
-                    <p><strong>Role:</strong> Software Developer</p>
-                    <p><strong>Responsibilities:</strong> User-flow and logic implementation, database design, UI layout design, API development, ML integration using logistic regression, IoT system with ESP32-C3, SMS and GPS integration.</p>
-                </div>
-                <div class="project-item">
-                    <span class="project-title">2) Weather Social Network App</span>
-                    <span class="tech-stack">Technologies: Java, Retrofit, REST API, MQTT, Cloudinary, IoT, C++</span>
-                    <p><strong>Responsibilities:</strong> User logic, DB design, MQTT configuration, cloud storage, IoT system development using ESP32-Cam.</p>
-                </div>
-
-                <h3 class="section-title">Honors and Awards</h3>
-                <ul>
-                    <li>Excellent Academic Encouragement Scholarship (2023–2024)</li>
-                    <li>UTE Challenge Scholarship (2024–2025)</li>
-                    <li>Published international paper in IEEE (May 2025)</li>
-                    <li>First Prize, Faculty Scientific Research Competition</li>
-                    <li>"Innovation for Community Health" Award - Viettel IDC</li>
-                </ul>
-            </div>
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Software Engineer &middot; Da Nang, Vietnam</p>
+        <h1>I build <span class="grad">AI-powered software</span> that ships &ndash; from LLM pipelines to full-stack apps and IoT hardware.</h1>
+        <p class="lead">Software Engineer with experience at three companies, two IEEE-published papers and end-to-end products that connect AI models, backend services, user interfaces and embedded devices.</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">View projects</a>
+          <a class="btn" href="assets/cv/DoThaiBinh-CV.pdf" download>Download CV (PDF)</a>
+          <a class="btn" href="https://github.com/DoThaiBinh" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="mailto:dothaibinh021218@gmail.com">Email me</a>
         </div>
+        <p class="open-to"><b>Open to:</b> Software Engineer &middot; AI Application Engineer &middot; Full-stack Developer</p>
+      </div>
+      <img class="avatar" src="assets/img/avatar.jpg" width="222" height="294" alt="Portrait of Do Thai Binh">
     </div>
-
-    <div id="android" class="tab-content">
-        <div class="cv-grid">
-            <div class="cv-sidebar">
-                <h3 class="section-title">Skills</h3>
-                <p><strong>Android:</strong> Java, Retrofit, UI Layout Design</p>
-                <p><strong>Backend:</strong> REST API, SQL Server</p>
-                <p><strong>Others:</strong> Docker, Git, IoT integration</p>
-            </div>
-            <div class="cv-main">
-                <h3 class="section-title">Career Objective</h3>
-                <p>My long-term goal is to become a professional software developer and eventually lead high-performance project teams.</p>
-                <h3 class="section-title">Android Projects</h3>
-                <div class="project-item">
-                    <span class="project-title">Health Monitoring and Stroke Warning System</span>
-                    <p>Focusing on mobile UI/UX and real-time data from sensors. Implementation of GPS and SMS alerts for emergency cases.</p>
-                </div>
-                <div class="project-item">
-                    <span class="project-title">Weather Social Network</span>
-                    <p>Role: Project Administrator. Implementing social features: messages, comments, and live image streaming from IoT cameras.</p>
-                </div>
-            </div>
-        </div>
+    <div class="stats" aria-label="Highlights">
+      <div class="stat"><b>2</b><span>IEEE-published papers (1 as first author)</span></div>
+      <div class="stat"><b>3</b><span>industry roles in 2026: AI, full-stack, IoT</span></div>
+      <div class="stat"><b>6</b><span>end-to-end projects built</span></div>
+      <div class="stat"><b>3.7 / 4.0</b><span>GPA &middot; Excellent classification</span></div>
     </div>
-
-    <div id="dotnet" class="tab-content">
-        <div class="cv-main">
-            <h3 class="section-title">Professional Career Objective</h3>
-            <p>Mong muốn trở thành lập trình viên chuyên nghiệp và người dẫn đầu của các nhóm dự án .NET.</p>
-            
-            <h3 class="section-title">Experience & Products</h3>
-            <div class="project-item">
-                <span class="project-title">1) Personal Finance Management System</span>
-                <span class="tech-stack">Tech: C#, .NET, ASP.NET, Java Android, SQL Server, Restful API</span>
-                <p><strong>Position:</strong> Leader, Developer</p>
-                <p><strong>Responsibilities:</strong> Task assignment, user logic, database design, API development, Android layout development.</p>
-            </div>
-            <div class="project-item">
-                <span class="project-title">2) Weather Social Network System</span>
-                <p>Role: Developer & Project Manager. Configuring MQTT protocols and cloud-based image storage.</p>
-            </div>
-            
-            <h3 class="section-title">Technical Skills</h3>
-            <ul>
-                <li><strong>Languages:</strong> C#, MVC, ASP.NET, Entity Framework, RESTful API.</li>
-                <li><strong>Databases:</strong> SQL Server, MySQL.</li>
-                <li><strong>Soft Skills:</strong> Team leadership (Small/Medium teams), Public speaking.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="ba" class="tab-content">
-        <div class="cv-grid">
-            <div class="cv-sidebar">
-                <h3 class="section-title">BA Competencies</h3>
-                <ul>
-                    <li>Problem analysis and solving</li>
-                    <li>Requirement Gathering</li>
-                    <li>StarUML & Figma Prototyping</li>
-                    <li>Effective teamwork</li>
-                </ul>
-            </div>
-            <div class="cv-main">
-                <h3 class="section-title">BA Career Objective</h3>
-                <p>I am eager to work with advanced systems while learning from experienced engineering teams. My long-term goal is to become a professional business analyst.</p>
-                <h3 class="section-title">Analytical Experience</h3>
-                <div class="project-item">
-                    <span class="project-title">System Analysis - Stroke Warning Project</span>
-                    <p>Effectively analyzed and addressed evolving technical requirements. Published scientific paper based on system analysis results.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="transcript" class="tab-content">
-        <h3 class="section-title">Academic Record (Semester 1, 2025-2026)</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Subject</th>
-                    <th>Credits</th>
-                    <th>Score (10)</th>
-                    <th>Grade</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Computer Maintenance</td><td>2.0</td><td>8.7</td><td>A</td></tr>
-                <tr><td>IT Specialized English</td><td>2.0</td><td>9.4</td><td>A</td></tr>
-                <tr><td>E-Commerce</td><td>3.0</td><td>9.0</td><td>A</td></tr>
-                <tr><td>Artificial Intelligence</td><td>3.0</td><td>6.4</td><td>C</td></tr>
-                <tr><td>Programming Language Topics</td><td>3.0</td><td>9.0</td><td>A</td></tr>
-                <tr><td>Wireless Network Technology</td><td>2.0</td><td>8.5</td><td>A</td></tr>
-                <tr><td>IT Project Management</td><td>2.0</td><td>8.4</td><td>B</td></tr>
-                <tr><td>Software Project</td><td>2.0</td><td>9.2</td><td>A</td></tr>
-            </tbody>
-        </table>
-        <div class="gpa-box">
-            Cumulative GPA: 3.68 / 4.0 (Excellent Classification)
-        </div>
-    </div>
+  </div>
 </div>
 
-<script>
-    function showTab(evt, tabId) {
-        var i, tabContent, tabBtn;
-        tabContent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabContent.length; i++) {
-            tabContent[i].style.display = "none";
-        }
-        tabBtn = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < tabBtn.length; i++) {
-            tabBtn[i].className = tabBtn[i].className.replace(" active", "");
-        }
-        document.getElementById(tabId).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-</script>
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow">About</p>
+    <h2>Three skills that work together</h2>
+    <p class="section-lead">I don't just call an AI API or build a screen. I design the whole path: data in, model, backend, interface and, when needed, the hardware.</p>
+    <div class="grid-3">
+      <article class="card reveal">
+        <div class="ico">&lt;/&gt;</div>
+        <h3>Full-stack development</h3>
+        <p>Frontend, backend, APIs and databases for real business systems.</p>
+        <ul>
+          <li>Maintained and extended a CRM (Node.js, Angular, MongoDB) at Antbuddy</li>
+          <li>ASP.NET Core + SQL Server + Android in the Smart Parcel Locker</li>
+          <li>REST APIs, third-party integrations, Playwright tests</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="ico">AI</div>
+        <h3>AI engineering</h3>
+        <p>LLM, RAG and computer vision turned into working products.</p>
+        <ul>
+          <li>RAG chatbot and exam generation with Qwen 7B</li>
+          <li>OCR &rarr; LaTeX &rarr; SymPy math engine with local-LLM fallback</li>
+          <li>Face / object recognition and VLM on wearable hardware</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="ico">&harr;</div>
+        <h3>System integration</h3>
+        <p>Connecting AI, engineering software and devices into one system.</p>
+        <ul>
+          <li>AI integration and Add-ins for AVEVA E3D / Unified Engineering at PEMOSE</li>
+          <li>MQTT pipelines between ESP32 devices, servers and apps</li>
+          <li>Document processing for P&amp;ID drawings (CAD, PDF, image)</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
 
+<section id="experience">
+  <div class="wrap">
+    <p class="eyebrow">Experience</p>
+    <h2>Industry experience</h2>
+    <p class="section-lead">Three roles in 2026, each in a different part of the stack.</p>
+    <ol class="timeline">
+      <li class="job card reveal">
+        <div class="job-head"><h3>AI &amp; Software Engineer &middot; <span class="org">PEMOSE</span></h3><span class="when">08/2026 &ndash; Present</span></div>
+        <ul>
+          <li>Integrated AI into 3D engineering software (<b>AVEVA E3D, Unified Engineering, Navisworks</b>) for oil &amp; gas piping engineering.</li>
+          <li>Developed custom <b>Add-ins</b> and integration systems that extend these platforms and automate engineering workflows.</li>
+          <li>Built <b>RAG-based chatbots</b> for retrieval and Q&amp;A over engineering documents.</li>
+          <li>Researched and implemented automated conversion of <b>P&amp;ID drawings</b> (CAD, PDF, image) into AVEVA Unified Engineering.</li>
+        </ul>
+        <ul class="chips"><li>Python</li><li>.NET</li><li>LLM</li><li>RAG</li><li>API Integration</li><li>AVEVA E3D</li><li>Unified Engineering</li></ul>
+      </li>
+      <li class="job card reveal">
+        <div class="job-head"><h3>Full-stack Developer &middot; <span class="org">Antbuddy</span></h3><span class="when">05/2026 &ndash; 07/2026</span></div>
+        <ul>
+          <li>Maintained and enhanced an enterprise <b>CRM system</b> (Node.js, Angular, MongoDB): bug fixes and new features from business requirements.</li>
+          <li>Developed and integrated <b>RESTful APIs</b>; improved API response time and database queries.</li>
+          <li>Integrated third-party chat platforms and wrote automated end-to-end tests with <b>Playwright</b>.</li>
+        </ul>
+        <ul class="chips"><li>Node.js</li><li>Express.js</li><li>Angular</li><li>TypeScript</li><li>MongoDB</li><li>Playwright</li></ul>
+      </li>
+      <li class="job card reveal">
+        <div class="job-head"><h3>IoT Intern &middot; <span class="org">Koson Technology</span></h3><span class="when">01/2026 &ndash; 04/2026</span></div>
+        <ul>
+          <li>Developed <b>Android applications integrated with IoT devices</b> for the MIQ Resident Management System.</li>
+          <li>Tested IoT modules, analyzed workflows and wrote technical documentation for cross-functional teams.</li>
+        </ul>
+        <ul class="chips"><li>Android</li><li>Java</li><li>IoT</li><li>REST API</li></ul>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <p class="eyebrow">Projects</p>
+    <h2>Selected projects</h2>
+    <p class="section-lead">Each one is a complete system, not a demo of a single library. The flow strip shows how data moves through it.</p>
+
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button type="button" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" data-filter="ai" aria-pressed="false">AI</button>
+      <button type="button" data-filter="fullstack" aria-pressed="false">Full-stack</button>
+      <button type="button" data-filter="iot" aria-pressed="false">IoT</button>
+      <button type="button" data-filter="research" aria-pressed="false">Published research</button>
+    </div>
+
+    <div class="projects">
+
+      <article class="card project reveal" data-tags="ai fullstack">
+        <div><span class="badge">AI</span><span class="badge">Full-stack</span></div>
+        <h3>AI-Powered Learning &amp; Assessment Platform</h3>
+        <p class="sum">Learning platform for elementary students (Mathematics &amp; Informatics) where teachers create tests by chatting and students get answers grounded in their textbooks.</p>
+        <ol class="flow"><li><span>Upload textbooks</span></li><li><span>Chunk &amp; embed</span></li><li><span>Vector search</span></li><li><span>Qwen 7B</span></li><li><span>Answer / exam + LaTeX</span></li></ol>
+        <ul class="points">
+          <li>RAG chatbot with relevant image extraction and document references.</li>
+          <li>Conversational exam generation, online testing, automatic grading and AI feedback.</li>
+          <li>Formula processing and LaTeX rendering for AI-generated questions.</li>
+        </ul>
+        <ul class="chips"><li>Python</li><li>Qwen 7B</li><li>RAG</li><li>LangChain</li><li>Vector DB</li><li>Docker</li></ul>
+      </article>
+
+      <article class="card project reveal" data-tags="ai fullstack">
+        <div><span class="badge">AI</span><span class="badge">Desktop</span></div>
+        <h3>Smart Math Whiteboard</h3>
+        <p class="sum">Desktop app that reads handwritten math, solves it symbolically and draws graphs and variation tables. Runs fully offline on CPU.</p>
+        <ol class="flow"><li><span>Handwriting</span></li><li><span>Pix2Text OCR</span></li><li><span>LaTeX normalize</span></li><li><span>SymPy</span></li><li><span>Graph &amp; table</span></li></ol>
+        <ul class="points">
+          <li>Hybrid assistant: exact SymPy answers first, local quantized LLM (llama.cpp) as fallback.</li>
+          <li>Live coefficient sliders backed by a cached server-side parsing endpoint.</li>
+        </ul>
+        <div class="metrics">
+          <span class="metric"><b>~12,000</b> lines of C# + Python</span>
+          <span class="metric"><b>1&ndash;7 s &rarr; 0.15&ndash;0.5 s</b> graph refresh</span>
+        </div>
+        <ul class="chips"><li>C# / .NET 8</li><li>Python</li><li>FastAPI</li><li>SymPy</li><li>PyTorch / ONNX</li><li>llama.cpp</li></ul>
+      </article>
+
+      <article class="card project reveal" data-tags="fullstack iot research">
+        <div><span class="badge">Full-stack</span><span class="badge">IoT</span><span class="badge gold">IEEE &middot; first author</span></div>
+        <h3>Smart Parcel Locker System</h3>
+        <p class="sum">Last-mile delivery lockers with secure face-verified pickup and next-day parcel-volume forecasting.</p>
+        <ol class="flow"><li><span>Android app</span></li><li><span>ASP.NET Core API + SQL Server</span></li><li><span>MQTT</span></li><li><span>ESP32 locker</span></li><li><span>InsightFace pickup</span></li></ol>
+        <ul class="points">
+          <li>Backend APIs, database and Android app for users, orders and locker management.</li>
+          <li>Real-time MQTT device monitoring and remote control; push notifications via FCM.</li>
+          <li>Decision Tree (CART) model forecasting next-day parcel volume.</li>
+        </ul>
+        <ul class="chips"><li>C#</li><li>ASP.NET Core</li><li>SQL Server</li><li>Android</li><li>ESP32</li><li>MQTT</li><li>Docker</li></ul>
+        <div class="links">
+          <a href="https://github.com/DoThaiBinh/Smart-Parcel-Locker-System-for-Last-Mile-Delivery" target="_blank" rel="noopener">GitHub &rarr;</a>
+          <a href="https://ieeexplore.ieee.org/document/11628354" target="_blank" rel="noopener">IEEE paper &rarr;</a>
+        </div>
+      </article>
+
+      <article class="card project reveal" data-tags="ai iot">
+        <div><span class="badge">AI</span><span class="badge">IoT</span><span class="badge">AR</span></div>
+        <h3>AI Smart Glasses for Cognitive Impairment</h3>
+        <p class="sum">Assistive wearable that recognises faces and objects and shows name tags, navigation cues and reminders on an AR display.</p>
+        <ol class="flow"><li><span>ESP32-S3 camera + mic</span></li><li><span>MQTT</span></li><li><span>VLM / CV / STT</span></li><li><span>AR HUD + TTS</span></li></ol>
+        <ul class="points">
+          <li>Built from scratch: custom ESP32-S3 hardware, micro-OLED display, backend and mobile app.</li>
+          <li>Face recognition with vector embeddings (Supabase), YOLO object detection, speech in/out.</li>
+          <li>MQTT channel also drives simple Smart Home control.</li>
+        </ul>
+        <ul class="chips"><li>ESP32-S3</li><li>VLM / LLM</li><li>YOLO</li><li>Face Recognition</li><li>MQTT</li><li>Supabase</li></ul>
+      </article>
+
+      <article class="card project reveal" data-tags="iot research">
+        <div><span class="badge">IoT</span><span class="badge">ML</span><span class="badge gold">IEEE &middot; award-winning</span></div>
+        <h3>Stroke Warning System</h3>
+        <p class="sum">Wearable plus mobile app that monitors health metrics and gives an early stroke-risk warning with automatic emergency alerts.</p>
+        <ol class="flow"><li><span>ESP32-C3 sensors</span></li><li><span>.NET API + SQL Server</span></li><li><span>Logistic Regression</span></li><li><span>Android: GPS + SMS alert</span></li></ol>
+        <ul class="points">
+          <li>End-to-end: C++ firmware, RESTful API, native Android app, Docker deployment.</li>
+          <li>First Prize at the Faculty research competition and the Viettel IDC &ldquo;Innovation for Community Health&rdquo; award.</li>
+        </ul>
+        <ul class="chips"><li>ESP32-C3</li><li>C++</li><li>.NET</li><li>Android</li><li>Machine Learning</li><li>Docker</li></ul>
+        <div class="links">
+          <a href="https://github.com/DoThaiBinh/Stroke_Warning_App" target="_blank" rel="noopener">GitHub &rarr;</a>
+          <a href="https://ieeexplore.ieee.org/document/11142086" target="_blank" rel="noopener">IEEE paper &rarr;</a>
+        </div>
+      </article>
+
+      <article class="card project reveal" data-tags="ai">
+        <div><span class="badge">AI</span><span class="badge">RAG</span></div>
+        <h3>Academic Consultation Chatbot</h3>
+        <p class="sum">RAG chatbot answering tuition, enrollment and regulation questions strictly from university documents.</p>
+        <ol class="flow"><li><span>User question</span></li><li><span>Keyword extraction</span></li><li><span>Supabase vector search</span></li><li><span>Llama 3.2 (Ollama)</span></li><li><span>Grounded answer</span></li></ol>
+        <ul class="points">
+          <li>Retrieval boundaries on source documents to reduce hallucination.</li>
+          <li>Persistent chat history with memory re-hydration across sessions.</li>
+        </ul>
+        <ul class="chips"><li>Python</li><li>FastAPI</li><li>LangChain</li><li>Ollama</li><li>Supabase</li></ul>
+      </article>
+    </div>
+
+    <div class="more">
+      <div class="card reveal">
+        <h3>More projects</h3>
+        <div class="more-grid">
+          <div><b>Weather Social Network</b><p>Android app + ASP.NET backend with live data over MQTT from an ESP32-CAM, images stored on Cloudinary.</p></div>
+          <div><b>Personal Finance Management System</b><p>.NET / ASP.NET Core API with SQL Server and Android client. Team leader: task assignment, API and data design.</p></div>
+          <div><b>AI Gesture Box</b><p>ESP32-S3 device using gesture recognition to control a PC.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <p class="eyebrow">Skills</p>
+    <h2>Technical skills</h2>
+    <p class="section-lead">Grouped by what I use them for.</p>
+    <div class="skills">
+      <div class="card reveal"><h3>Languages</h3><ul class="chips"><li>Python</li><li>C#</li><li>JavaScript</li><li>TypeScript</li><li>Java</li><li>C / C++</li></ul></div>
+      <div class="card reveal"><h3>Frontend &amp; Backend</h3><ul class="chips"><li>Angular</li><li>Node.js</li><li>Express.js</li><li>ASP.NET Core</li><li>Entity Framework</li><li>FastAPI</li><li>REST API</li></ul></div>
+      <div class="card reveal"><h3>Databases</h3><ul class="chips"><li>SQL Server</li><li>MongoDB</li><li>MySQL</li><li>Supabase</li><li>Vector Database</li></ul></div>
+      <div class="card reveal"><h3>AI &amp; Machine Learning</h3><ul class="chips"><li>LLM</li><li>RAG</li><li>Qwen</li><li>LangChain</li><li>Embeddings</li><li>OCR</li><li>YOLOv8</li><li>InsightFace</li><li>Logistic Regression</li></ul></div>
+      <div class="card reveal"><h3>IoT &amp; Digital Engineering</h3><ul class="chips"><li>ESP32 / ESP32-S3</li><li>MQTT</li><li>UART / I2C</li><li>AVEVA E3D</li><li>Unified Engineering</li><li>Add-in development</li></ul></div>
+      <div class="card reveal"><h3>Tools &amp; DevOps</h3><ul class="chips"><li>Git / GitHub</li><li>Docker</li><li>Linux</li><li>Postman</li><li>Playwright</li><li>n8n</li><li>Figma</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="recognition">
+  <div class="wrap">
+    <p class="eyebrow">Recognition</p>
+    <h2>Publications &amp; awards</h2>
+    <p class="section-lead">Peer-reviewed work and competition results, with photos and certificates. Click any image to enlarge.</p>
+
+    <div class="pubs">
+      <article class="card reveal">
+        <small>IEEE &middot; 2026 &middot; First author</small>
+        <h3>Design and Implementation of an IoT-Based Smart Parcel Locker System for Last-Mile Delivery Using MQTT and Machine Learning Model</h3>
+        <a href="https://ieeexplore.ieee.org/document/11628354" target="_blank" rel="noopener">Read on IEEE Xplore &rarr;</a>
+      </article>
+      <article class="card reveal">
+        <small>IEEE &middot; 2025</small>
+        <h3>Design of Stroke Risk Warning System Based on Internet of Things (IoT) Technology and Machine Learning Model</h3>
+        <a href="https://ieeexplore.ieee.org/document/11142086" target="_blank" rel="noopener">Read on IEEE Xplore &rarr;</a>
+      </article>
+    </div>
+
+    <article class="card award reveal">
+      <div class="award-head"><h3>Best Poster Presentation &ndash; ATIGB 2025</h3><span class="when">2025</span></div>
+      <p>Awarded at the 10th International Conference on Applying New Technology in Green Buildings for the Stroke Risk Warning System paper.</p>
+      <div class="gallery">
+        <button class="shot" type="button" data-full="assets/img/ieee-3.jpg" data-cap="Certificate of Best Poster Presentation, ATIGB 2025"><img loading="lazy" src="assets/img/ieee-3.jpg" alt="Certificate of Best Poster Presentation at ATIGB 2025"></button>
+        <button class="shot" type="button" data-full="assets/img/ieee-1.jpg" data-cap="Presenting the research poster at ATIGB 2025"><img loading="lazy" src="assets/img/ieee-1.jpg" alt="Standing next to the research poster at ATIGB 2025"></button>
+        <button class="shot" type="button" data-full="assets/img/ieee-2.jpg" data-cap="ATIGB 2025 conference"><img loading="lazy" src="assets/img/ieee-2.jpg" alt="At the ATIGB 2025 conference entrance"></button>
+      </div>
+    </article>
+
+    <article class="card award reveal">
+      <div class="award-head"><h3>&ldquo;Innovation for Community Health&rdquo; Award &ndash; Viettel IDC Group</h3><span class="when">2025</span></div>
+      <p>Student Scientific Research Award of the University of Danang, sponsored by Viettel IDC, for the Stroke Warning System.</p>
+      <div class="gallery">
+        <button class="shot" type="button" data-full="assets/img/viettel-idc-1.jpg" data-cap="Award ceremony, Viettel IDC prize"><img loading="lazy" src="assets/img/viettel-idc-1.jpg" alt="Receiving the Viettel IDC award on stage"></button>
+        <button class="shot" type="button" data-full="assets/img/viettel-idc-2.jpg" data-cap="Viettel IDC prize recipients"><img loading="lazy" src="assets/img/viettel-idc-2.jpg" alt="Prize recipients on stage at the award ceremony"></button>
+      </div>
+    </article>
+
+    <article class="card award reveal">
+      <div class="award-head"><h3>First Prize &ndash; Faculty Scientific Research Competition in Digital Technology</h3><span class="when">2025</span></div>
+      <p>University of Technology and Education, The University of Danang. Also received a Rector&rsquo;s certificate of merit for outstanding achievement in science and technology activities.</p>
+      <div class="gallery">
+        <button class="shot" type="button" data-full="assets/img/faculty-1.jpg" data-cap="First Prize certificate, Faculty Scientific Research Competition"><img loading="lazy" src="assets/img/faculty-1.jpg" alt="First Prize certificate, Faculty Scientific Research Competition"></button>
+        <button class="shot" type="button" data-full="assets/img/faculty-2.jpg" data-cap="Rector's certificate of merit for science and technology activities"><img loading="lazy" src="assets/img/faculty-2.jpg" alt="Rector's certificate of merit for science and technology activities"></button>
+      </div>
+    </article>
+
+    <article class="card award reveal">
+      <div class="award-head"><h3>Consolation Prize &ndash; University-level Scientific Research Competition</h3><span class="when">2025</span></div>
+      <p>The University of Danang. Presented and demonstrated the working system to the judging panel.</p>
+      <div class="gallery">
+        <button class="shot" type="button" data-full="assets/img/university-cert.jpg" data-cap="Consolation Prize certificate, The University of Danang"><img loading="lazy" src="assets/img/university-cert.jpg" alt="Consolation Prize certificate from The University of Danang"></button>
+        <button class="shot" type="button" data-full="assets/img/university-1.jpg" data-cap="Prototype exhibited at the competition"><img loading="lazy" src="assets/img/university-1.jpg" alt="Prototype exhibited next to the award certificate"></button>
+        <button class="shot" type="button" data-full="assets/img/university-2.jpg" data-cap="Demonstrating the prototype to the judges"><img loading="lazy" src="assets/img/university-2.jpg" alt="Demonstrating the prototype to the judges"></button>
+        <button class="shot" type="button" data-full="assets/img/university-3.jpg" data-cap="Presenting the project"><img loading="lazy" src="assets/img/university-3.jpg" alt="Presenting the project to the panel"></button>
+      </div>
+    </article>
+
+    <article class="card award reveal">
+      <div class="award-head"><h3>UTE Challenge Scholarship 2024&ndash;2025</h3><span class="when">Dec 2025</span></div>
+      <p>The university&rsquo;s most prestigious scholarship of the academic year, awarded for results across studies, research and activities. Also holder of Excellent Academic Encouragement Scholarships (2023&ndash;2024, 2025&ndash;2026).</p>
+      <div class="gallery">
+        <button class="shot" type="button" data-full="assets/img/ute-challenge-1.jpg" data-cap="UTE Challenge Scholarship ceremony"><img loading="lazy" src="assets/img/ute-challenge-1.jpg" alt="UTE Challenge Scholarship award ceremony"></button>
+        <button class="shot" type="button" data-full="assets/img/ute-challenge-2.jpg" data-cap="UTE Challenge Scholarship certificate"><img loading="lazy" src="assets/img/ute-challenge-2.jpg" alt="UTE Challenge Scholarship certificate and trophy"></button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <p class="eyebrow">Education</p>
+    <h2>Education</h2>
+    <div class="card reveal">
+      <div class="edu"><h3>University of Technology and Education &ndash; The University of Danang</h3><b>GPA 3.7 / 4.0</b></div>
+      <p style="margin:4px 0 0;color:var(--muted)">Software Engineering &middot; Major: Information Technology &middot; Expected to graduate with Excellent Classification.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="card contact reveal">
+      <h2>Let&rsquo;s build something useful</h2>
+      <p>I'm looking for a Software Engineer, AI Application Engineer or Full-stack Developer role. The quickest way to reach me is email.</p>
+      <div class="cta" style="justify-content:center;margin:0">
+        <a class="btn" href="mailto:dothaibinh021218@gmail.com">dothaibinh021218@gmail.com</a>
+        <a class="btn" href="https://github.com/DoThaiBinh" target="_blank" rel="noopener">github.com/DoThaiBinh</a>
+        <a class="btn" href="assets/cv/DoThaiBinh-CV.pdf" download>Download CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">&copy; 2026 Do Thai Binh &middot; Da Nang, Vietnam</div></footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Image viewer">
+  <form method="dialog"><button aria-label="Close image">&times;</button></form>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+</dialog>
+
+<script>
+(function () {
+  var root = document.documentElement, body = document.body;
+  body.classList.remove('no-js');
+
+  // theme toggle (remembered per viewer when storage is available)
+  var btn = document.getElementById('themeBtn');
+  try { var saved = localStorage.getItem('theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+  btn.addEventListener('click', function () {
+    var cur = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  // project filters
+  var fbtns = document.querySelectorAll('.filters button');
+  var cards = document.querySelectorAll('.project');
+  fbtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.getAttribute('data-filter');
+      fbtns.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      cards.forEach(function (c) {
+        var show = f === 'all' || c.getAttribute('data-tags').split(' ').indexOf(f) > -1;
+        c.hidden = !show;
+        if (show) c.classList.add('in');
+      });
+    });
+  });
+
+  // reveal on scroll
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  } else { items.forEach(function (el) { el.classList.add('in'); }); }
+
+  // lightbox
+  var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+  document.querySelectorAll('.shot').forEach(function (s) {
+    s.addEventListener('click', function () {
+      lbImg.src = s.getAttribute('data-full'); lbImg.alt = s.getAttribute('data-cap'); lbCap.textContent = s.getAttribute('data-cap');
+      if (lb.showModal) lb.showModal(); else window.open(s.getAttribute('data-full'), '_blank');
+    });
+  });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+})();
+</script>
 </body>
 </html>
