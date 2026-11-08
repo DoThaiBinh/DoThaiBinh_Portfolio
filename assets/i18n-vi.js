@@ -194,6 +194,10 @@ window.VI = {
  "Let’s build something useful": "Cùng xây dựng điều gì đó hữu ích",
  "I'm looking for a Software Engineer, AI Application Engineer or Full-stack Developer role, and I take on IoT / AIoT research and development projects from individuals. The quickest ways to reach me are email and Zalo.": "Tôi đang tìm vị trí Software Engineer, AI Application Engineer hoặc Full-stack Developer, đồng thời nhận dự án nghiên cứu và phát triển IoT / AIoT từ cá nhân. Cách liên hệ nhanh nhất là email và Zalo.",
  "Download CV": "Tải CV",
+ "96.1% face verification accuracy (FAR 1.3%, FRR 0.6%)": "<b>96,1%</b> độ chính xác xác thực khuôn mặt (FAR 1,3%, FRR 0,6%)",
+ "42 ms per face on GPU, 115 ms on CPU": "<b>42 ms</b>/khuôn mặt trên GPU, 115 ms trên CPU",
+ "99.2% MQTT delivery under simulated packet loss, 85 ms average latency": "<b>99,2%</b> tin MQTT gửi thành công khi giả lập mất gói, độ trễ trung bình 85 ms",
+ "Poster and paper previews are shown for reference. The paper preview is the author manuscript; the official version is on IEEE Xplore.": "Ảnh poster và bài báo chỉ để tham khảo. Bản bài báo hiển thị là bản thảo của tác giả; bản chính thức nằm trên IEEE Xplore.",
  "Read on IEEE Xplore →": "Đọc trên IEEE Xplore →",
  "IEEE paper →": "Bài báo IEEE →"
 };
@@ -212,6 +216,11 @@ window.VI_CAP = {
  "Prototype exhibited at the competition": "Mẫu thử trưng bày tại cuộc thi",
  "Demonstrating the prototype to the judges": "Demo mẫu thử cho hội đồng chấm",
  "Presenting the project": "Trình bày dự án",
+ "Research poster, ATiGB 2025 (paper ID 115)": "Poster nghiên cứu, ATiGB 2025 (mã bài báo 115)",
+ "Paper, first page (author manuscript) – Stroke Risk Warning System": "Bài báo, trang đầu (bản thảo của tác giả) – Stroke Risk Warning System",
+ "Research poster, ATiGB 2026 (paper ID 440)": "Poster nghiên cứu, ATiGB 2026 (mã bài báo 440)",
+ "Paper, first page (author manuscript) – Smart Parcel Locker System": "Bài báo, trang đầu (bản thảo của tác giả) – Smart Parcel Locker System",
+ "__open": "Mở kích thước đầy đủ ↗",
  "UTE Challenge Scholarship ceremony": "Lễ trao Học bổng Thử thách UTE",
  "UTE Challenge Scholarship certificate": "Giấy chứng nhận Học bổng Thử thách UTE",
  "AI Learning Platform – concept illustration (AI-generated), not a product screenshot": "AI Learning Platform – ảnh minh họa do AI tạo, không phải ảnh chụp sản phẩm",

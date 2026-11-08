@@ -173,6 +173,14 @@ h3 { margin: 0 0 6px; font-size: 1.15rem; line-height: 1.3; }
 .lang button { border: 0; background: transparent; color: var(--muted); font: inherit; font-weight: 800; font-size: .82rem; letter-spacing: .04em; padding: 0 11px; height: 36px; cursor: pointer; }
 .lang button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
 .lang button:not([aria-pressed="true"]):hover { color: var(--text); }
+
+/* poster / paper previews */
+.gallery { align-items: start; }
+.shot { position: relative; }
+.shot.doc { aspect-ratio: 3/4; }
+.shot.doc img { object-position: top; }
+.shot i.tag { position: absolute; left: 8px; bottom: 8px; font-style: normal; font-size: .68rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: rgba(8,12,26,.8); color: #dfe7ff; }
+dialog.lightbox a.open { display: block; text-align: center; color: #9fc2ff; margin-top: 6px; font-weight: 700; font-size: .92rem; }
 dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 94vh; }
 dialog.lightbox::backdrop { background: rgba(5,8,18,.86); }
 dialog.lightbox img { max-width: 94vw; max-height: 86vh; border-radius: 10px; margin: 0 auto; }
@@ -396,6 +404,11 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
           <li>Real-time MQTT device monitoring and remote control; push notifications via FCM.</li>
           <li>Decision Tree (CART) model forecasting next-day parcel volume.</li>
         </ul>
+        <div class="metrics">
+          <span class="metric"><b>96.1%</b> face verification accuracy (FAR 1.3%, FRR 0.6%)</span>
+          <span class="metric"><b>42 ms</b> per face on GPU, 115 ms on CPU</span>
+          <span class="metric"><b>99.2%</b> MQTT delivery under simulated packet loss, 85 ms average latency</span>
+        </div>
         <ul class="chips"><li>C#</li><li>ASP.NET Core</li><li>SQL Server</li><li>Android</li><li>ESP32</li><li>MQTT</li><li>Docker</li></ul>
         <div class="links">
           <a href="https://github.com/DoThaiBinh/Smart-Parcel-Locker-System-for-Last-Mile-Delivery" target="_blank" rel="noopener">GitHub &rarr;</a>
@@ -614,9 +627,12 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
       <div class="award-head"><h3>Author &ndash; ATiGB 2026 (IEEE conference)</h3><span class="when">Jul 2026</span></div>
       <p>Author of the Smart Parcel Locker paper at the 11th International Conference on Applying New Technology in Green Buildings, Da Nang, 10&ndash;11 July 2026.</p>
       <div class="gallery">
+        <button class="shot doc" type="button" data-full="assets/img/poster-atigb-2026.jpg" data-cap="Research poster, ATiGB 2026 (paper ID 440)"><img loading="lazy" src="assets/img/poster-atigb-2026.jpg" alt="Research poster of the Smart Parcel Locker System, ATiGB 2026"><i class="tag">Poster</i></button>
+        <button class="shot doc" type="button" data-full="assets/img/paper-parcel-p1.jpg" data-cap="Paper, first page (author manuscript) &ndash; Smart Parcel Locker System"><img loading="lazy" src="assets/img/paper-parcel-p1.jpg" alt="First page of the Smart Parcel Locker System paper"><i class="tag">Paper</i></button>
         <button class="shot" type="button" data-full="assets/img/ieee-2026-2.jpg" data-cap="ATiGB 2026 author badge and conference programme"><img loading="lazy" src="assets/img/ieee-2026-2.jpg" alt="ATiGB 2026 author badge and conference programme"></button>
         <button class="shot" type="button" data-full="assets/img/ieee-2026-3.jpg" data-cap="At ATiGB 2026"><img loading="lazy" src="assets/img/ieee-2026-3.jpg" alt="Do Thai Binh holding the author badge at ATiGB 2026"></button>
       </div>
+      <p class="figcap" style="margin:10px 0 0">Poster and paper previews are shown for reference. The paper preview is the author manuscript; the official version is on IEEE Xplore.</p>
     </article>
 
     <article class="card award reveal">
@@ -624,9 +640,12 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
       <p>Awarded at the 10th International Conference on Applying New Technology in Green Buildings for the Stroke Risk Warning System paper.</p>
       <div class="gallery">
         <button class="shot" type="button" data-full="assets/img/ieee-3.jpg" data-cap="Certificate of Best Poster Presentation, ATIGB 2025"><img loading="lazy" src="assets/img/ieee-3.jpg" alt="Certificate of Best Poster Presentation at ATIGB 2025"></button>
+        <button class="shot doc" type="button" data-full="assets/img/poster-atigb-2025.jpg" data-cap="Research poster, ATiGB 2025 (paper ID 115)"><img loading="lazy" src="assets/img/poster-atigb-2025.jpg" alt="Research poster of the Stroke Risk Warning System, ATiGB 2025"><i class="tag">Poster</i></button>
+        <button class="shot doc" type="button" data-full="assets/img/paper-stroke-p1.jpg" data-cap="Paper, first page (author manuscript) &ndash; Stroke Risk Warning System"><img loading="lazy" src="assets/img/paper-stroke-p1.jpg" alt="First page of the Stroke Risk Warning System paper"><i class="tag">Paper</i></button>
         <button class="shot" type="button" data-full="assets/img/ieee-1.jpg" data-cap="Presenting the research poster at ATIGB 2025"><img loading="lazy" src="assets/img/ieee-1.jpg" alt="Standing next to the research poster at ATIGB 2025"></button>
         <button class="shot" type="button" data-full="assets/img/ieee-2.jpg" data-cap="ATIGB 2025 conference"><img loading="lazy" src="assets/img/ieee-2.jpg" alt="At the ATIGB 2025 conference entrance"></button>
       </div>
+      <p class="figcap" style="margin:10px 0 0">Poster and paper previews are shown for reference. The paper preview is the author manuscript; the official version is on IEEE Xplore.</p>
     </article>
 
     <article class="card award reveal">
@@ -703,6 +722,7 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
   <form method="dialog"><button aria-label="Close image">&times;</button></form>
   <img id="lbImg" alt="">
   <p id="lbCap"></p>
+  <a class="open" id="lbOpen" target="_blank" rel="noopener">Open full size &#8599;</a>
 </dialog>
 
 <script src="assets/i18n-vi.js"></script>
@@ -771,11 +791,12 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
   if (want === 'vi') setLang('vi', false);
 
   // lightbox
-  var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+  var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap'); var lbOpen = document.getElementById('lbOpen');
   document.querySelectorAll('.shot').forEach(function (s) {
     s.addEventListener('click', function () {
       var cap = s.getAttribute('data-cap'); if (lang === 'vi' && VI_CAP[cap]) cap = VI_CAP[cap];
       lbImg.src = s.getAttribute('data-full'); lbImg.alt = cap; lbCap.textContent = cap;
+      lbOpen.href = s.getAttribute('data-full'); lbOpen.textContent = lang === 'vi' ? (VI_CAP['__open'] || 'Open full size \u2197') : 'Open full size \u2197';
       if (lb.showModal) lb.showModal(); else window.open(s.getAttribute('data-full'), '_blank');
     });
   });
