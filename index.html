@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Do Thai Binh – Software Engineer (AI & Full-stack)</title>
-<meta name="description" content="Portfolio of Do Thai Binh, Software Engineer in Da Nang, Vietnam – AI-powered applications (LLM, RAG, computer vision), full-stack development and IoT systems. Two IEEE publications.">
+<meta name="description" content="Portfolio of Do Thai Binh, Software Engineer in Da Nang, Vietnam – AI-powered applications (LLM, RAG, computer vision), full-stack development and IoT systems. Two IEEE publications. Available for IoT / AIoT research and development projects.">
 <meta name="theme-color" content="#0b1020">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://raw.githubusercontent.com/DoThaiBinh/DoThaiBinh_Portfolio/main/assets/img/concept-overview.jpg">
@@ -153,6 +153,20 @@ h3 { margin: 0 0 6px; font-size: 1.15rem; line-height: 1.3; }
 .shot.cover { position: relative; width: calc(100% + 44px); margin: -22px -22px 16px; aspect-ratio: 16/9; border: 0; border-bottom: 1px solid var(--line); border-radius: 16px 16px 0 0; }
 .shot.cover img { object-position: center top; }
 .shot.cover i { position: absolute; right: 10px; bottom: 10px; font-style: normal; font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 2px 9px; border-radius: 999px; background: rgba(8,12,26,.72); color: #dfe7ff; }
+
+/* services */
+.vi { color: var(--muted); font-style: italic; }
+.svc .proof { margin: 12px 0 0; padding-top: 10px; border-top: 1px dashed var(--line); font-size: .86rem; color: var(--muted); }
+.svc .proof b { color: var(--text); }
+.steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; list-style: none; padding: 0; margin: 14px 0 0; counter-reset: step; }
+.steps li { counter-increment: step; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 14px 12px; font-size: .9rem; color: var(--muted); }
+.steps li::before { content: counter(step); display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-weight: 800; font-size: .85rem; margin-bottom: 8px; }
+.steps b { display: block; color: var(--text); margin-bottom: 2px; }
+.who { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 22px; }
+.who ul { margin: 8px 0 0; padding-left: 18px; color: var(--muted); font-size: .94rem; }
+.who h3 { font-size: 1rem; }
+.proofbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; list-style: none; padding: 0; }
+.proofbar li { background: var(--accent-soft); border-radius: 999px; padding: 4px 13px; font-size: .86rem; font-weight: 700; color: var(--text); }
 dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 94vh; }
 dialog.lightbox::backdrop { background: rgba(5,8,18,.86); }
 dialog.lightbox img { max-width: 94vw; max-height: 86vh; border-radius: 10px; margin: 0 auto; }
@@ -176,6 +190,8 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
   .grid-3, .skills, .more-grid { grid-template-columns: 1fr; }
   .projects, .pubs { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .who { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .hero-grid { grid-template-columns: 1fr; }
@@ -195,6 +211,7 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#recognition">Recognition</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -216,8 +233,10 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
           <a class="btn" href="assets/cv/DoThaiBinh-CV.pdf" download>Download CV (PDF)</a>
           <a class="btn" href="https://github.com/DoThaiBinh" target="_blank" rel="noopener">GitHub</a>
           <a class="btn" href="mailto:dothaibinh021218@gmail.com">Email me</a>
+          <a class="btn" href="https://zalo.me/0839976113" target="_blank" rel="noopener">Zalo</a>
         </div>
         <p class="open-to"><b>Open to:</b> Software Engineer &middot; AI Application Engineer &middot; Full-stack Developer</p>
+        <p class="open-to"><b>Also taking on:</b> IoT / AIoT research &amp; development projects &rarr; <a href="#services">see services</a></p>
       </div>
       <img class="avatar" src="assets/img/avatar.jpg" width="222" height="294" alt="Portrait of Do Thai Binh">
     </div>
@@ -432,6 +451,120 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
   </div>
 </section>
 
+<section id="services">
+  <div class="wrap">
+    <p class="eyebrow">Services &middot; Open for projects</p>
+    <h2>Innovation project development &amp; research: IoT, AIoT and related software</h2>
+    <p class="section-lead">I take on development and research of innovation projects, from the first idea to a working prototype or product, specialising in IoT and AIoT solutions and the software around them.<br><span class="vi" lang="vi">Nh&#7853;n ph&aacute;t tri&#7875;n v&agrave; nghi&ecirc;n c&#7913;u d&#7921; &aacute;n &#273;&#7893;i m&#7899;i s&aacute;ng t&#7841;o, chuy&ecirc;n gi&#7843;i ph&aacute;p IoT, AIoT v&agrave; c&aacute;c ph&#7847;n m&#7873;m li&ecirc;n quan.</span></p>
+
+    <div class="grid-3">
+      <article class="card svc reveal">
+        <div class="ico">IoT</div>
+        <h3>IoT systems, end to end</h3>
+        <p style="margin:0;color:var(--muted)">Device, connectivity, backend and app built as one system.</p>
+        <ul>
+          <li>ESP32 / ESP32-S3 / ESP32-C3 firmware in C++</li>
+          <li>Sensors, actuators, cameras, displays</li>
+          <li>MQTT / HTTP / UART / I2C communication</li>
+          <li>Backend, database and Android / web app</li>
+        </ul>
+        <p class="proof"><b>Proven in:</b> Smart Parcel Locker, Stroke Warning System</p>
+      </article>
+      <article class="card svc reveal">
+        <div class="ico">AI</div>
+        <h3>AIoT solutions</h3>
+        <p style="margin:0;color:var(--muted)">AI that works with real devices and real-time data.</p>
+        <ul>
+          <li>Face / object recognition (InsightFace, YOLO)</li>
+          <li>VLM / LLM and speech (STT / TTS) with wearable hardware</li>
+          <li>Machine-learning models for prediction and risk scoring</li>
+          <li>Real-time alerts and remote control</li>
+        </ul>
+        <p class="proof"><b>Proven in:</b> AI Smart Glasses, Smart Parcel Locker, Stroke Warning System</p>
+      </article>
+      <article class="card svc reveal">
+        <div class="ico">&lt;/&gt;</div>
+        <h3>Software for the product</h3>
+        <p style="margin:0;color:var(--muted)">The web, mobile and desktop software that makes a device usable.</p>
+        <ul>
+          <li>REST APIs, dashboards, admin and user apps</li>
+          <li>ASP.NET Core, Node.js, FastAPI, Angular, Android</li>
+          <li>SQL Server, MongoDB, MySQL, Supabase</li>
+          <li>Docker deployment, Git workflow</li>
+        </ul>
+        <p class="proof"><b>Proven in:</b> Antbuddy CRM, Smart Parcel Locker, Smart Math Whiteboard</p>
+      </article>
+      <article class="card svc reveal">
+        <div class="ico">LLM</div>
+        <h3>AI-powered applications</h3>
+        <p style="margin:0;color:var(--muted)">LLM and RAG features inside a complete product.</p>
+        <ul>
+          <li>RAG chatbots over your own documents</li>
+          <li>OCR and document processing pipelines</li>
+          <li>Local / offline LLM deployment</li>
+          <li>AI inside existing software</li>
+        </ul>
+        <p class="proof"><b>Proven in:</b> AI Learning Platform, Academic Chatbot, PEMOSE RAG chatbot</p>
+      </article>
+      <article class="card svc reveal">
+        <div class="ico">R&amp;D</div>
+        <h3>Research &amp; prototyping</h3>
+        <p style="margin:0;color:var(--muted)">Turning an idea into a tested prototype and a clear write-up.</p>
+        <ul>
+          <li>Feasibility study, system design, technology selection</li>
+          <li>Working prototype with experiments and evaluation</li>
+          <li>Scientific paper and poster writing</li>
+          <li>Support for research and innovation competitions</li>
+        </ul>
+        <p class="proof"><b>Proven in:</b> 2 IEEE papers, First Prize (Faculty), Viettel IDC award, Best Poster ATIGB 2025</p>
+      </article>
+      <article class="card svc reveal">
+        <div class="ico">&harr;</div>
+        <h3>Integration &amp; automation</h3>
+        <p style="margin:0;color:var(--muted)">Connecting systems that were not built to talk to each other.</p>
+        <ul>
+          <li>Third-party API and messaging integration</li>
+          <li>Add-ins and AI integration for engineering software</li>
+          <li>Workflow automation (n8n, custom services)</li>
+          <li>P&amp;ID / CAD / PDF document processing</li>
+        </ul>
+        <p class="proof"><b>Proven in:</b> PEMOSE (AVEVA E3D, Unified Engineering), Antbuddy</p>
+      </article>
+    </div>
+
+    <h3 style="margin-top:34px">How a project runs</h3>
+    <ol class="steps">
+      <li class="reveal"><b>Discover</b>Goals, users, constraints, budget and timeline.</li>
+      <li class="reveal"><b>Design</b>Feasibility, architecture, hardware and software choices.</li>
+      <li class="reveal"><b>Prototype</b>A working demo early, to test the idea on real hardware and data.</li>
+      <li class="reveal"><b>Build &amp; test</b>Full implementation, testing and iteration with your feedback.</li>
+      <li class="reveal"><b>Hand over</b>Source code, deployment, documentation and demo. Paper or report for research projects.</li>
+    </ol>
+
+    <div class="who">
+      <div class="card reveal">
+        <h3>Good fit for</h3>
+        <ul>
+          <li>Student and university research projects and competitions</li>
+          <li>Startups that need a first working MVP</li>
+          <li>Businesses adding smart-device or AI features to a product</li>
+          <li>Innovation and R&amp;D teams that need a prototype built and evaluated</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3>Start a project</h3>
+        <p style="margin:6px 0 12px;color:var(--muted);font-size:.94rem">Send a short brief: what you want to build, who it is for, your timeline and any hardware or software already chosen. I reply with questions or a proposed approach. Scope, timeline and cost are agreed before work starts. Email or Zalo both work.</p>
+        <a class="btn primary" href="mailto:dothaibinh021218@gmail.com?subject=Project%20inquiry%20-%20IoT%20%2F%20AIoT">Email a project brief</a>
+        <a class="btn" href="https://zalo.me/0839976113" target="_blank" rel="noopener">Chat on Zalo</a>
+      </div>
+    </div>
+
+    <ul class="proofbar" aria-label="Track record">
+      <li>2 IEEE papers</li><li>1st Prize &ndash; Faculty research</li><li>Viettel IDC award</li><li>Best Poster ATIGB 2025</li><li>6 systems built end to end</li>
+    </ul>
+  </div>
+</section>
+
 <section id="skills">
   <div class="wrap">
     <p class="eyebrow">Skills</p>
@@ -542,9 +675,10 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
   <div class="wrap">
     <div class="card contact reveal">
       <h2>Let&rsquo;s build something useful</h2>
-      <p>I'm looking for a Software Engineer, AI Application Engineer or Full-stack Developer role. The quickest way to reach me is email.</p>
+      <p>I'm looking for a Software Engineer, AI Application Engineer or Full-stack Developer role, and I also take on IoT / AIoT development and research projects. The quickest ways to reach me are email and Zalo.</p>
       <div class="cta" style="justify-content:center;margin:0">
         <a class="btn" href="mailto:dothaibinh021218@gmail.com">dothaibinh021218@gmail.com</a>
+        <a class="btn" href="https://zalo.me/0839976113" target="_blank" rel="noopener">Zalo: 0839 976 113</a>
         <a class="btn" href="https://github.com/DoThaiBinh" target="_blank" rel="noopener">github.com/DoThaiBinh</a>
         <a class="btn" href="assets/cv/DoThaiBinh-CV.pdf" download>Download CV</a>
       </div>
