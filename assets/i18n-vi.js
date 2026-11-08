@@ -13,7 +13,7 @@ window.VI = {
  "Download CV (PDF)": "Tải CV (PDF)",
  "Email me": "Gửi email",
  "Open to: Software Engineer · AI Application Engineer · Full-stack Developer": "<b>Đang tìm vị trí:</b> Software Engineer · AI Application Engineer · Full-stack Developer",
- "Also taking on: IoT / AIoT research & development projects from individuals → see services": "<b>Đồng thời nhận:</b> dự án nghiên cứu &amp; phát triển IoT / AIoT từ cá nhân &rarr; <a href=\"#services\">xem dịch vụ</a>",
+ "Also taking on: IoT / AIoT research & development projects from individuals → see services": "<b>Đồng thời nhận:</b> dự án nghiên cứu &amp; phát triển IoT / AIoT từ cá nhân &rarr; <a href=\"services.html\">xem dịch vụ</a>",
  "IEEE-published papers (1 as first author)": "bài báo IEEE (1 bài là tác giả chính)",
  "industry roles in 2026: AI, full-stack, IoT": "vị trí làm việc năm 2026: AI, full-stack, IoT",
  "end-to-end projects built": "dự án hoàn chỉnh đã xây dựng",
@@ -198,6 +198,8 @@ window.VI = {
  "42 ms per face on GPU, 115 ms on CPU": "<b>42 ms</b>/khuôn mặt trên GPU, 115 ms trên CPU",
  "99.2% MQTT delivery under simulated packet loss, 85 ms average latency": "<b>99,2%</b> tin MQTT gửi thành công khi giả lập mất gói, độ trễ trung bình 85 ms",
  "Poster and paper previews are shown for reference. The paper preview is the author manuscript; the official version is on IEEE Xplore.": "Ảnh poster và bài báo chỉ để tham khảo. Bản bài báo hiển thị là bản thảo của tác giả; bản chính thức nằm trên IEEE Xplore.",
+ "← Back to portfolio": "&larr; Quay lại portfolio",
+ "See the projects behind these services →": "<a href=\"index.html#projects\">Xem các dự án làm nền tảng cho những dịch vụ này &rarr;</a>",
  "Read on IEEE Xplore →": "Đọc trên IEEE Xplore →",
  "IEEE paper →": "Bài báo IEEE →"
 };
