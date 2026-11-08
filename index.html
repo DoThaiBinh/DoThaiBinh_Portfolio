@@ -7,6 +7,8 @@
 <meta name="description" content="Portfolio of Do Thai Binh, Software Engineer in Da Nang, Vietnam – AI-powered applications (LLM, RAG, computer vision), full-stack development and IoT systems. Two IEEE publications.">
 <meta name="theme-color" content="#0b1020">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://raw.githubusercontent.com/DoThaiBinh/DoThaiBinh_Portfolio/main/assets/img/concept-overview.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:title" content="Do Thai Binh – Software Engineer (AI & Full-stack)">
 <meta property="og:description" content="AI-powered applications, full-stack development and IoT systems. Two IEEE publications, three industry roles, six end-to-end projects.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='white'%3EDB%3C/text%3E%3C/svg%3E">
@@ -143,6 +145,14 @@ h3 { margin: 0 0 6px; font-size: 1.15rem; line-height: 1.3; }
 .shot { padding: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface-2); cursor: zoom-in; aspect-ratio: 4/3; }
 .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
 .shot:hover img { transform: scale(1.05); }
+
+/* concept art */
+.banner { display: block; width: 100%; aspect-ratio: auto; padding: 0; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; cursor: zoom-in; background: var(--surface-2); box-shadow: var(--shadow); }
+.banner img { width: 100%; height: auto; }
+.figcap { color: var(--muted); font-size: .82rem; margin: 8px 2px 24px; }
+.shot.cover { position: relative; width: calc(100% + 44px); margin: -22px -22px 16px; aspect-ratio: 16/9; border: 0; border-bottom: 1px solid var(--line); border-radius: 16px 16px 0 0; }
+.shot.cover img { object-position: center top; }
+.shot.cover i { position: absolute; right: 10px; bottom: 10px; font-style: normal; font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 2px 9px; border-radius: 999px; background: rgba(8,12,26,.72); color: #dfe7ff; }
 dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 94vh; }
 dialog.lightbox::backdrop { background: rgba(5,8,18,.86); }
 dialog.lightbox img { max-width: 94vw; max-height: 86vh; border-radius: 10px; margin: 0 auto; }
@@ -225,6 +235,7 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
     <p class="eyebrow">About</p>
     <h2>Three skills that work together</h2>
     <p class="section-lead">I don't just call an AI API or build a screen. I design the whole path: data in, model, backend, interface and, when needed, the hardware.</p>
+    <button class="shot banner" type="button" data-full="assets/img/concept-six.jpg" data-cap="Six systems built end to end &ndash; concept illustration (AI-generated)" style="margin-bottom:26px"><img loading="lazy" src="assets/img/concept-six.jpg" width="1672" height="657" alt="Concept illustration of six systems: AI learning platform, math whiteboard, smart glasses, chatbot, parcel locker, stroke warning"></button>
     <div class="grid-3">
       <article class="card reveal">
         <div class="ico">&lt;/&gt;</div>
@@ -302,6 +313,7 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
     <p class="eyebrow">Projects</p>
     <h2>Selected projects</h2>
     <p class="section-lead">Each one is a complete system, not a demo of a single library. The flow strip shows how data moves through it.</p>
+    <p class="figcap" style="margin-top:-12px">Cover art on this page is AI-generated concept illustration, not screenshots of the real products.</p>
 
     <div class="filters" role="group" aria-label="Filter projects">
       <button type="button" data-filter="all" aria-pressed="true">All</button>
@@ -314,6 +326,7 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
     <div class="projects">
 
       <article class="card project reveal" data-tags="ai fullstack">
+        <button class="shot cover" type="button" data-full="assets/img/concept-learning.jpg" data-cap="AI Learning Platform &ndash; concept illustration (AI-generated), not a product screenshot"><img loading="lazy" src="assets/img/concept-learning.jpg" alt="Concept illustration of AI Learning Platform"><i>Concept art</i></button>
         <div><span class="badge">AI</span><span class="badge">Full-stack</span></div>
         <h3>AI-Powered Learning &amp; Assessment Platform</h3>
         <p class="sum">Learning platform for elementary students (Mathematics &amp; Informatics) where teachers create tests by chatting and students get answers grounded in their textbooks.</p>
@@ -327,6 +340,7 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
       </article>
 
       <article class="card project reveal" data-tags="ai fullstack">
+        <button class="shot cover" type="button" data-full="assets/img/cover-math.jpg" data-cap="Smart Math Whiteboard &ndash; concept illustration (AI-generated), not a product screenshot"><img loading="lazy" src="assets/img/cover-math.jpg" alt="Concept illustration of Smart Math Whiteboard"><i>Concept art</i></button>
         <div><span class="badge">AI</span><span class="badge">Desktop</span></div>
         <h3>Smart Math Whiteboard</h3>
         <p class="sum">Desktop app that reads handwritten math, solves it symbolically and draws graphs and variation tables. Runs fully offline on CPU.</p>
@@ -343,6 +357,7 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
       </article>
 
       <article class="card project reveal" data-tags="fullstack iot research">
+        <button class="shot cover" type="button" data-full="assets/img/cover-parcel.jpg" data-cap="Smart Parcel Locker &ndash; concept illustration (AI-generated), not a product screenshot"><img loading="lazy" src="assets/img/cover-parcel.jpg" alt="Concept illustration of Smart Parcel Locker"><i>Concept art</i></button>
         <div><span class="badge">Full-stack</span><span class="badge">IoT</span><span class="badge gold">IEEE &middot; first author</span></div>
         <h3>Smart Parcel Locker System</h3>
         <p class="sum">Last-mile delivery lockers with secure face-verified pickup and next-day parcel-volume forecasting.</p>
@@ -360,6 +375,7 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
       </article>
 
       <article class="card project reveal" data-tags="ai iot">
+        <button class="shot cover" type="button" data-full="assets/img/cover-glasses.jpg" data-cap="AI Smart Glasses &ndash; concept illustration (AI-generated), not a product screenshot"><img loading="lazy" src="assets/img/cover-glasses.jpg" alt="Concept illustration of AI Smart Glasses"><i>Concept art</i></button>
         <div><span class="badge">AI</span><span class="badge">IoT</span><span class="badge">AR</span></div>
         <h3>AI Smart Glasses for Cognitive Impairment</h3>
         <p class="sum">Assistive wearable that recognises faces and objects and shows name tags, navigation cues and reminders on an AR display.</p>
@@ -373,6 +389,7 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
       </article>
 
       <article class="card project reveal" data-tags="iot research">
+        <button class="shot cover" type="button" data-full="assets/img/cover-stroke.jpg" data-cap="Stroke Warning System &ndash; concept illustration (AI-generated), not a product screenshot"><img loading="lazy" src="assets/img/cover-stroke.jpg" alt="Concept illustration of Stroke Warning System"><i>Concept art</i></button>
         <div><span class="badge">IoT</span><span class="badge">ML</span><span class="badge gold">IEEE &middot; award-winning</span></div>
         <h3>Stroke Warning System</h3>
         <p class="sum">Wearable plus mobile app that monitors health metrics and gives an early stroke-risk warning with automatic emergency alerts.</p>
@@ -389,6 +406,7 @@ footer { padding: 34px 0 44px; text-align: center; color: var(--muted); font-siz
       </article>
 
       <article class="card project reveal" data-tags="ai">
+        <button class="shot cover" type="button" data-full="assets/img/cover-chat.jpg" data-cap="Academic Consultation Chatbot &ndash; concept illustration (AI-generated), not a product screenshot"><img loading="lazy" src="assets/img/cover-chat.jpg" alt="Concept illustration of Academic Consultation Chatbot"><i>Concept art</i></button>
         <div><span class="badge">AI</span><span class="badge">RAG</span></div>
         <h3>Academic Consultation Chatbot</h3>
         <p class="sum">RAG chatbot answering tuition, enrollment and regulation questions strictly from university documents.</p>
